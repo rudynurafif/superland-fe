@@ -72,7 +72,8 @@
               "browserTarget": "superland:build:production"
             },
             "development": {
-              "browserTarget": "superland:build:development"
+              "browserTarget": "superland:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
