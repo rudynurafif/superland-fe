@@ -1,0 +1,16 @@
+Enigmaland
+
+Dompet Online dan Penyewaan Wahana
+Pemakaian QR code sbg tiket untuk filingnya
+API pihak ke tiga, top up ke dana, dpt beberapa poin dan akan berkurang poin setiap berkunjung ke tiap wahana (1 : 100)
+
+
+User Story (step2 mulai dari login s/d naik wahana)
+
+Landing Page ke login page
+
+Auth :
+- Login
+- Registers
+
+Ketika akun baru direct ke halaman lengkapi profil
