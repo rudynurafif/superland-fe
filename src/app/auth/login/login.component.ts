@@ -46,7 +46,7 @@ export class LoginComponent {
     //     Swal.fire('Invalid username / password')
     //   }
     // })
-    this.router.navigateByUrl('/home')
+    this.router.navigateByUrl('/superland')
   }
 
 }
