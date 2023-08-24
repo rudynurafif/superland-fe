@@ -16,8 +16,8 @@ const routes: Routes = [
   },{
     path : 'superland',
     loadChildren : () => import('./pages/pages.module').then(m => m.PagesModule),
-    canActivate : [authGuard],
-    canActivateChild : [authGuard]
+    // canActivate : [authGuard],
+    // canActivateChild : [authGuard]
   }
 ];
 
