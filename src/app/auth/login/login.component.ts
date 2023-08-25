@@ -19,34 +19,34 @@ export class LoginComponent {
   ) {}
 
   loginForm : FormGroup = new FormGroup({
-    email : new FormControl('', Validators.required),
+    username : new FormControl('', Validators.required),
     password : new FormControl('', Validators.required)
   })  
 
   login(data: UserRequest) {
-    // console.log("Login Request : ", data)
-    // this.service.login(data).subscribe({
-    //   next : (res) => {
-    //     console.log("Response : ", res)
-    //     let token = res.data.token
-    //     if (token) {
-    //       sessionStorage.setItem('token', token)
-    //       Swal.fire({
-    //         icon: 'success',
-    //         title: 'Successfully login!',
-    //         showConfirmButton: false,
-    //         timer: 1500
-    //       })
-    //       this.loginForm.reset()
-    //       this.router.navigateByUrl('/store')
-    //     }
-    //   },
-    //   error : (err) => {
-    //     console.log("Error : ", err)
-    //     Swal.fire('Invalid username / password')
-    //   }
-    // })
-    this.router.navigateByUrl('/superland')
+    console.log("Login Request : ", data)
+    this.service.login(data).subscribe({
+      next : (res) => {
+        console.log("Response : ", res)
+        let token = res.jwt
+        console.log(token)
+        if (token) {
+          sessionStorage.setItem('token', token)
+          Swal.fire({
+            icon: 'success',
+            title: 'Successfully login!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.loginForm.reset()
+          this.router.navigateByUrl('/set-profile-image')
+        }
+      },
+      error : (err) => {
+        console.log("Error : ", err)
+        Swal.fire('Invalid username / password')
+      }
+    })
   }
 
 }

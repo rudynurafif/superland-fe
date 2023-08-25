@@ -12,11 +12,18 @@ export class AuthService {
     private readonly http : HttpClient
   ) { }
 
-  public login (data : any) : Observable<any> {
-    return this.http.post<UserResponseWrapper>('/api/auth/login', data)
+  public register (data : any) : Observable<any> {
+    return this.http.post<any>('/api/auth/register', data)
+  }
+  
+  public verify (token : string) : Observable<any> {
+    return this.http.post<any>(`/api/auth/verify/${token}`, '')
   }
 
-  public register (data : any) : Observable<any> {
-    return this.http.post<UserResponseWrapper>('/api/auth/register-admin', data)
+  public login (data : any) : Observable<any> {
+    return this.http.post<any>('/api/auth/login', data)
   }
+
+
+  
 }

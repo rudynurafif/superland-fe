@@ -42,9 +42,9 @@ export class RegisterComponent {
         timer: 1500
       }) 
       this.registerForm.reset()
-      this.router.navigate([''])
+      this.router.navigate(['/verification'])
     }, err => {
-      alert('Something went wrong')
+      Swal.fire('Something went wrong..')
     })
   }
 

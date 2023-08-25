@@ -7,8 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './shared/component/footer/footer.component';
+import { VerificationComponent } from './verification/verification.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SetProfileImageComponent } from './account/set-profile-image/set-profile-image.component';
+import { GetProfileComponent } from './account/get-profile/get-profile.component';
+import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -16,6 +21,10 @@ import { FooterComponent } from './shared/component/footer/footer.component';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
+    VerificationComponent,
+    LandingPageComponent,
+    SetProfileImageComponent,
+    GetProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +34,9 @@ import { FooterComponent } from './shared/component/footer/footer.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [{
+    provide : HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
