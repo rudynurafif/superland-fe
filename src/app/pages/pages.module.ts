@@ -10,7 +10,8 @@ import { Footer2Component } from './theme-park/footer2/footer2.component';
 import { NavbarComponent } from '../shared/component/navbar/navbar.component';
 import { EventsComponent } from './theme-park/events/events.component';
 import { MapsComponent } from './theme-park/maps/maps.component';
-import { ProfileComponent } from './theme-park/profile/profile.component';
+import { SetProfileImageComponent } from './theme-park/account/set-profile-image/set-profile-image.component';
+import { GetProfileComponent } from './theme-park/account/get-profile/get-profile.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ProfileComponent } from './theme-park/profile/profile.component';
     NavbarComponent,
     EventsComponent,
     MapsComponent,
-    ProfileComponent
+    SetProfileImageComponent,
+    GetProfileComponent
   ],
   imports: [
     CommonModule,

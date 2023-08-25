@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { UserRequest } from '../model/user-request.model';
+import { AuthRequest } from '../model/auth-request.model';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -23,7 +23,7 @@ export class LoginComponent {
     password : new FormControl('', Validators.required)
   })  
 
-  login(data: UserRequest) {
+  login(data: AuthRequest) {
     console.log("Login Request : ", data)
     this.service.login(data).subscribe({
       next : (res) => {

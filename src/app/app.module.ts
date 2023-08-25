@@ -11,8 +11,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './shared/component/footer/footer.component';
 import { VerificationComponent } from './verification/verification.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { SetProfileImageComponent } from './account/set-profile-image/set-profile-image.component';
-import { GetProfileComponent } from './account/get-profile/get-profile.component';
+import { SetProfileImageComponent } from './pages/theme-park/account/set-profile-image/set-profile-image.component';
+import { GetProfileComponent } from './pages/theme-park/account/get-profile/get-profile.component';
 import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
 
 @NgModule({
@@ -23,8 +23,6 @@ import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
     FooterComponent,
     VerificationComponent,
     LandingPageComponent,
-    SetProfileImageComponent,
-    GetProfileComponent,
   ],
   imports: [
     BrowserModule,

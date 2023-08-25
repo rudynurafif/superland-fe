@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserResponseWrapper } from '../shared/model/user-response.model';
+import { AuthRequest } from './model/auth-request.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,8 @@ export class AuthService {
     return this.http.post<any>('/api/auth/register', data)
   }
   
-  public verify (token : string) : Observable<any> {
-    return this.http.post<any>(`/api/auth/verify/${token}`, '')
+  public verify (token : string) : Observable<any> {  
+    return this.http.post<string>(`/api/auth/verify/${token}`, '')
   }
 
   public login (data : any) : Observable<any> {

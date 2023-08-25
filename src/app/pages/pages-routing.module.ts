@@ -6,7 +6,8 @@ import { RidesComponent } from './theme-park/rides/rides.component';
 import { TenantsComponent } from './theme-park/tenants/tenants.component';
 import { MerchandiseComponent } from './theme-park/merchandise/merchandise.component';
 import { MapsComponent } from './theme-park/maps/maps.component';
-import { ProfileComponent } from './theme-park/profile/profile.component';
+import { SetProfileImageComponent } from './theme-park/account/set-profile-image/set-profile-image.component';
+import { GetProfileComponent } from './theme-park/account/get-profile/get-profile.component';
 
 const routes: Routes = [
   {
@@ -35,8 +36,12 @@ const routes: Routes = [
   },
   {
     path : 'profile',
-    component : ProfileComponent
-  }
+    component : GetProfileComponent
+  },
+  {
+    path : 'set-profile-image',
+    component : SetProfileImageComponent,
+  },
 ];
 
 @NgModule({

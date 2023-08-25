@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AuthService } from '../auth.service';  
-import { UserRequest } from '../model/user-request.model';
+import { AuthRequest } from '../model/auth-request.model';
 
 @Component({
   selector: 'app-register',
@@ -24,7 +24,7 @@ export class RegisterComponent {
 
   ngOnInit() : void {
     this.registerForm = this.formBuilder.group({
-      email : ['', Validators.required],
+      username : ['', Validators.required],
       password : ['', Validators.required]
     })
   }
@@ -33,8 +33,9 @@ export class RegisterComponent {
     return this.registerForm.get(property) as FormGroup
   }
 
-  register(data : UserRequest) {
+  register(data : AuthRequest) {
     this.service.register(data).subscribe(res => {
+      console.log(res)
       Swal.fire({
         icon: 'success',
         title: 'Register successfull',
@@ -45,6 +46,7 @@ export class RegisterComponent {
       this.router.navigate(['/verification'])
     }, err => {
       Swal.fire('Something went wrong..')
+      this.router.navigateByUrl('/register')
     })
   }
 

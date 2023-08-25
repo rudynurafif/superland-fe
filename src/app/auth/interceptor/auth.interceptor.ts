@@ -24,14 +24,14 @@ export class AuthInterceptor implements HttpInterceptor {
             title: 'Oops...',
             text: 'You are not authorized!'
           });
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/login');
         } else if (err.status === 404) {
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Not found!'
           });
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/login');
         }
         return throwError(err)
       }));

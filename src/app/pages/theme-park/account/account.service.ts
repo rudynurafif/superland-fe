@@ -14,9 +14,10 @@ export class AccountService {
   public getAccInfo () : Observable<any> {
     return this.http.get<any>('/api/account/about-me')
   }
-
-  public setProfileImage (data : any) : Observable<string> {
-    return this.http.post<string>('/api/account/set-profile-picture', data)
+  
+  public setProfileImage(data: any): Observable<any> {
+    return this.http.post('/api/account/set-profile-picture', data, { responseType: 'text' });
   }
+  
 
 }
