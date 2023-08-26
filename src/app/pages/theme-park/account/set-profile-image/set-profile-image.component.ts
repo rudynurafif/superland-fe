@@ -33,16 +33,14 @@ export class SetProfileImageComponent {
 
     this.accService.setProfileImage(formData).subscribe({
       next: (response: any) => {
-        if (response === "Success") {
-          console.log(response)
-          Swal.fire({
-            icon: 'success',
-            title: 'Profile image uploaded successfully',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          this.router.navigate(['superland']);
-        }
+        // console.log(response)
+        Swal.fire({
+          icon: 'success',
+          title: 'Profile image uploaded successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.router.navigate(['superland']);
       },
       error: (error: any) => {
         Swal.fire({

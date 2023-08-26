@@ -13,9 +13,15 @@ export class GetProfileComponent {
   ) {}
 
   profileData : any = {}
+  profileImageUrl : string = ''
+
+
 
   ngOnInit() {
-    this.accountService.getAccInfo().subscribe(data => this.profileData = data)
+    this.accountService.getAccInfo().subscribe(data => {
+      this.profileData = data
+      this.profileImageUrl = data.profileImage
+    })
   }
   
 

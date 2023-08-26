@@ -8,6 +8,7 @@ import { MerchandiseComponent } from './theme-park/merchandise/merchandise.compo
 import { MapsComponent } from './theme-park/maps/maps.component';
 import { SetProfileImageComponent } from './theme-park/account/set-profile-image/set-profile-image.component';
 import { GetProfileComponent } from './theme-park/account/get-profile/get-profile.component';
+import { TopupComponent } from './theme-park/topup/topup.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
     path : 'set-profile-image',
     component : SetProfileImageComponent,
   },
+  {
+    path : 'topup',
+    component : TopupComponent
+  }
 ];
 
 @NgModule({

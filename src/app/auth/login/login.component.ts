@@ -39,7 +39,7 @@ export class LoginComponent {
             timer: 1500
           })
           this.loginForm.reset()
-          this.router.navigateByUrl('/set-profile-image')
+          this.router.navigateByUrl('/superland/set-profile-image')
         }
       },
       error : (err) => {

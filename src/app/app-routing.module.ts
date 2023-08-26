@@ -27,16 +27,16 @@ const routes: Routes = [
     path: 'login',
     component : LoginComponent
   },
-  {
-    path : 'set-profile-image',
-    component : SetProfileImageComponent,
-    canActivate : [authGuard],
-  },
-  {
-    path : 'my-profile',
-    component : GetProfileComponent,
-    canActivate : [authGuard],
-  },
+  // {
+  //   path : 'set-profile-image',
+  //   component : SetProfileImageComponent,
+  //   canActivate : [authGuard],
+  // },
+  // {
+  //   path : 'my-profile',
+  //   component : GetProfileComponent,
+  //   canActivate : [authGuard],
+  // },
   {
     path : 'superland',
     loadChildren : () => import('./pages/pages.module').then(m => m.PagesModule),

@@ -31,18 +31,18 @@
          
         </ul>
         <div class="dropdown-center">
-          <span class="btn bg-warning me-3 text-white">
+          <button (click)="topUp()" class="btn bg-warning me-3 text-white">
             <i class="fa-brands fa-product-hunt"></i>
-            10
-          </span>
+            {{ profileData.point }}
+          </button>
             <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
              Profile
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLink="/superland/profile" href="">Profile</a></li>
-              <li><a class="dropdown-item" href="" routerLink="/login" (click)="logout()">Logout</a></li>
-            </ul>
-          </div>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/superland/profile" href="">Profile</a></li>
+            <li><a class="dropdown-item" href="" routerLink="/login" (click)="logout()">Logout</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>

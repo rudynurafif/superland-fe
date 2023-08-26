@@ -4,8 +4,7 @@
     <div class="row">
       <div class="col-md-6 mx-auto">
         <div class="card mb-4"> 
-            <img [src]="profileData.profileImage === 'default.jpg' ? 'https://cdn.vectorstock.com/i/preview-1x/32/12/default-avatar-profile-icon-vector-39013212.jpg' : profileData.profileImage" class="card-img-top" alt="Profile Image">
-
+          <img [src]="profileImageUrl" class="img-fluid rounded" alt="Profile Image">
           <div class="card-body">
             <h1 class="card-title">{{ profileData.username }}</h1>
             <p class="card-text">Points: {{ profileData.point }}</p>

@@ -13,6 +13,7 @@ import { MapsComponent } from './theme-park/maps/maps.component';
 import { SetProfileImageComponent } from './theme-park/account/set-profile-image/set-profile-image.component';
 import { GetProfileComponent } from './theme-park/account/get-profile/get-profile.component';
 import { FormsModule } from '@angular/forms';
+import { TopupComponent } from './theme-park/topup/topup.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     MapsComponent,
     SetProfileImageComponent,
     GetProfileComponent,
+    TopupComponent,
   ],
   imports: [
     CommonModule,
