@@ -1,7 +1,9 @@
 <app-get-profile></app-get-profile>
 
+<!-- <app-navbar></app-navbar> -->
+
 <div class="container mt-5">
-  <h2>Let's Upload Profile Image First</h2>
+  <h2>Let's Upload Your Profile Image First</h2>
   <form (ngSubmit)="uploadProfileImage()" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="profileImage" class="form-label">Choose Profile Image</label>
@@ -10,5 +12,7 @@
     <button [disabled]="!file" type="submit" class="btn btn-primary">Upload</button>
   </form>
 </div>
+
+<!-- <app-footer2></app-footer2> -->
 
   

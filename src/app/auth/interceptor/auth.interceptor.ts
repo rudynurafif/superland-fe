@@ -31,7 +31,7 @@ export class AuthInterceptor implements HttpInterceptor {
             title: 'Oops...',
             text: 'Not found!'
           });
-          this.router.navigateByUrl('/login');
+          // this.router.navigateByUrl('/login');
         }
         return throwError(err)
       }));

@@ -12,6 +12,7 @@ import { EventsComponent } from './theme-park/events/events.component';
 import { MapsComponent } from './theme-park/maps/maps.component';
 import { SetProfileImageComponent } from './theme-park/account/set-profile-image/set-profile-image.component';
 import { GetProfileComponent } from './theme-park/account/get-profile/get-profile.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,11 +26,12 @@ import { GetProfileComponent } from './theme-park/account/get-profile/get-profil
     EventsComponent,
     MapsComponent,
     SetProfileImageComponent,
-    GetProfileComponent
+    GetProfileComponent,
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    FormsModule,
   ]
 })
 export class PagesModule { }

@@ -1,5 +1,53 @@
 <app-navbar></app-navbar>
 
-<h1>TENANTS</h1>
+<div class="container">
+
+    <div class="mb-3 col-md-4">
+        <div class="input-group">
+          <span class="input-group-text" id="search-icon">
+            <i class="bi bi-search"></i>
+          </span>
+          <input type="text" class="form-control" [(ngModel)]="searchTerm" (ngModelChange)="onSearchTermChange()" placeholder="Search by title or description">
+          <span class="input-group-text" id="clear-icon" (click)="clearSearch()">
+            <i class="bi bi-x"></i>
+          </span>
+        </div>
+      </div>
+
+    <div class="row mb-5">
+        <div class="col-md-4" *ngFor="let card of filteredCards">
+          <div class="card mb-5 card-equal-height" style="width: 22.5rem;">
+            <img src="{{ card.imageUrl }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ card.title }}</h5>
+              <p class="card-text">{{ card.description }}</p>
+              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardModal" (click)="openModal(card)">Open Modal</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="cardModalLabel">{{ selectedCard?.title }}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <img src="{{ selectedCard?.imageUrl }}" class="img-fluid" alt="...">
+              <p>{{ selectedCard?.description }}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+</div>
+
+
 
 <app-footer2></app-footer2>

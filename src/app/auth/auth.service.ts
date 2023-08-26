@@ -13,7 +13,7 @@ export class AuthService {
     private readonly http : HttpClient
   ) { }
 
-  public register (data : any) : Observable<any> {
+  public register (data : AuthRequest) : Observable<any> {
     return this.http.post<any>('/api/auth/register', data)
   }
   
@@ -21,7 +21,7 @@ export class AuthService {
     return this.http.post<string>(`/api/auth/verify/${token}`, '')
   }
 
-  public login (data : any) : Observable<any> {
+  public login (data : AuthRequest) : Observable<any> {
     return this.http.post<any>('/api/auth/login', data)
   }
 

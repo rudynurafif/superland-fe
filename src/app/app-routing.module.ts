@@ -8,6 +8,7 @@ import { VerificationComponent } from './verification/verification.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SetProfileImageComponent } from './pages/theme-park/account/set-profile-image/set-profile-image.component';
 import { GetProfileComponent } from './pages/theme-park/account/get-profile/get-profile.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
     loadChildren : () => import('./pages/pages.module').then(m => m.PagesModule),
     canActivate : [authGuard],
     canActivateChild : [authGuard]
+  },
+  {
+    path : '**',
+    component : NotFoundComponent
   }
 ];
 
