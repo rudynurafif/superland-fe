@@ -18,12 +18,12 @@ export class TopupComponent {
   profileData : any = {}
 
   cards: any[] = [
-    { title: "500", buttonText: 50000, pointValue : 500 },
-    { title: "1000", buttonText: 100000, pointValue : 1000 },
-    { title: "2000", buttonText: 200000, pointValue : 2000 },
-    { title: "5000", buttonText: 500.000, pointValue : 5000 },
-    { title: "10000", buttonText: 1000000, pointValue : 10000 },
-    { title: "15000", buttonText: 1500000, pointValue : 15000 }
+    { price: 50000, pointValue : 500 },
+    { price: 100000, pointValue : 1000 },
+    { price: 200000, pointValue : 2000 },
+    { price: 500000, pointValue : 5000 },
+    { price: 1000000, pointValue : 10000 },
+    { price: 1500000, pointValue : 15000 }
   ];
 
   ngOnInit() {
@@ -32,12 +32,44 @@ export class TopupComponent {
     })
   }
 
+  // topupPoint(point: number): void {
+  //   this.topUpService.topup(point).subscribe(
+  //     response => {
+  //       Swal.fire({
+  //         title: `<strong>Top Up Point <u>${point}</u></strong>`,
+  //         icon: 'question',
+  //         html:
+  //           'Are you sure want to proceed top up?',
+  //         showCloseButton: true,
+  //         showCancelButton: true,
+  //         focusConfirm: false,
+  //         confirmButtonText:
+  //           `<a href="${response.data.redirect_url}" style="color: inherit; text-decoration: none;" target="_blank">
+  //           <i class="fa fa-thumbs-up"></i> Yes!
+  //         </a>`,
+  //         confirmButtonAriaLabel: 'Thumbs up, great!',
+  //         cancelButtonText:
+  //           'Cancel',
+  //         cancelButtonAriaLabel: 'Thumbs down'
+  //       })
+  //     },
+  //     error => {
+  //       Swal.fire({
+  //         icon: 'error',
+  //         title: 'Oops...',
+  //         text: `${error.message}`,
+  //       })
+  //     }
+  //   );
+  // }
+
   topupPoint(point: number): void {
-    this.topUpService.topup(point).subscribe(
-      response => {
+    this.topUpService.topup(point).subscribe({
+      next: response => {
+        console.log(response)
         Swal.fire({
           title: `<strong>Top Up Point <u>${point}</u></strong>`,
-          icon: 'info',
+          icon: 'question',
           html:
             'Are you sure want to proceed top up?',
           showCloseButton: true,
@@ -51,14 +83,16 @@ export class TopupComponent {
           cancelButtonText:
             'Cancel',
           cancelButtonAriaLabel: 'Thumbs down'
-        })
+        });
       },
-      error => {
-        // Tangani error di sini jika diperlukan
+      error: error => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: `${error.message}`,
+        });
       }
-    );
+    });
   }
-
-
 
 }

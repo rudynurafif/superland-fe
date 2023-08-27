@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AuthService } from '../auth/auth.service';
+import { VerifyRequest } from '../shared/model/verify-request.model';
 
 @Component({
   selector: 'app-verification',
@@ -23,8 +24,14 @@ export class VerificationComponent {
   })
 
   verify(token : string) {
+    let data:VerifyRequest={
+      name:"name",
+      token:this.verificationForm.get("verificationCode")?.value
+    };
+    console.log(data)
+   
     console.log(token)
-    this.service.verify(token).subscribe({
+    this.service.verify(data).subscribe({
       next : res => {
         Swal.fire({
           icon: 'success',
@@ -32,7 +39,9 @@ export class VerificationComponent {
           showConfirmButton: false,
           timer: 1500
         })
-        this.router.navigateByUrl('/superland')
+        console.log(res)
+        this.router.navigateByUrl('/login')
+        // this.router.navigate(['/superland'])
       }
     })
   }

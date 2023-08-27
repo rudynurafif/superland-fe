@@ -42,8 +42,8 @@
                                   alt="..."
                                 />
                                 <div class="card-body">
-                                  <h5 class="card-title">{{ card.title }}</h5>
-                                  <button (click)="topupPoint(card.pointValue)" class="btn btn-secondary">IDR {{ card.buttonText | numberFormat }}</button>
+                                  <h5 class="card-title">{{ card.pointValue }} Points</h5>
+                                  <button (click)="topupPoint(card.pointValue)" class="btn btn-secondary">IDR {{ card.price | numberFormat }}</button>
                                 </div>
                               </div>
                             </div>

@@ -7,12 +7,22 @@
             <div class="background-block">
                 <img src="https://www.usnews.com/dims4/USNEWS/a28a169/2147483647/thumbnail/970x647/quality/85/?url=https%3A%2F%2Fwww.usnews.com%2Fcmsmedia%2F02%2F80%2Faadbb9eb4c4191ca88d5142386d7%2Fintro-jolly-rancher-remix-flavor-tunnel-credit-hersheypark.jpg" alt="profile-sample1" class="background"/>
             </div>
-            <div class="profile-thumb-block">
+            <div class="profile-thumb-block">s
                 <!-- <img [src]="profileData.profileImage === 'default.jpg' ? 'default.jpg' : profileData.profileImage" alt="default.jpg" class="profile"/> -->
-                <img [src]="retrievedImage" alt="photo.jpg" class="profile"/>
+                <!-- <img [src]="retrievedImage" alt="photo.jpg" class="profile"/> -->
+                <!-- ///home/user/Documents/enigma/Mini-Project/backend/img/userProfile -->
+
+                <!-- <img [src]="'/assets/images/profilePicture/default.jpg'" alt="photo.jpg" class="profile"/> -->
+
+
+                <img [src]="" alt="photo.jpg" class="profile"/>
+
+
+
             </div>
             <div class="card-content">
-                <h2>{{ profileData.username }}<small>Points : {{ profileData.point }}</small></h2>
+                <!-- <h2>{{profileData.profileImages}}</h2> -->
+                <h2>{{ profileData.username}}<small>Points : {{ profileData.point }}</small></h2>
                 <a [href]="profileData.qrImage" class="btn btn-primary">Download QR Code</a>
             </div>
       </div>

@@ -14,8 +14,15 @@ export class AuthInterceptor implements HttpInterceptor {
 
   constructor(private readonly router : Router) {}
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+
+  intercept(request: HttpRequest<any>, next: HttpHandler): 
+  
+  Observable<HttpEvent<unknown>> {
+  const excludePaths = ['/login', '/register', '/verify' ];
     const token = sessionStorage.getItem('token');
+    if (excludePaths.some((path) => request.url.includes(path))) {
+      return next.handle(request)
+    }
     return next.handle(request.clone({setHeaders: {authorization: `Bearer ${token}`}}))
       .pipe(catchError(err => {
         if (err.status === 401) {
