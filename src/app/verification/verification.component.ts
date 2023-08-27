@@ -24,9 +24,9 @@ export class VerificationComponent {
   })
 
   verify(token : string) {
-    let data:VerifyRequest={
-      name:"name",
-      token:this.verificationForm.get("verificationCode")?.value
+    let data : VerifyRequest = {
+      name : "name",
+      token : this.verificationForm.get("verificationCode")?.value
     };
     console.log(data)
    
@@ -41,7 +41,6 @@ export class VerificationComponent {
         })
         console.log(res)
         this.router.navigateByUrl('/login')
-        // this.router.navigate(['/superland'])
       }
     })
   }
