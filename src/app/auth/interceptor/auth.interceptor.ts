@@ -14,7 +14,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   constructor(private readonly router : Router) {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = sessionStorage.getItem('token');
     return next.handle(request.clone({setHeaders: {authorization: `Bearer ${token}`}}))
       .pipe(catchError(err => {

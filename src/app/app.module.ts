@@ -34,9 +34,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FormsModule
   ],
   providers: [
-    // {
-    //   provide : HTTP_INTERCEPTORS, useClass : AuthInterceptor, multi : true
-    // }
+    {
+      provide : HTTP_INTERCEPTORS, useClass : AuthInterceptor, multi : true
+    }
   ],
   bootstrap: [AppComponent]
 })

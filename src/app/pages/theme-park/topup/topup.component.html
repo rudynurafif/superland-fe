@@ -7,16 +7,17 @@
             <div class="card" style="width: auto;">
                 <div class="card-body">
                 <h1 class="card-title">COIN TOP UP</h1>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, ab?</p>
-                <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia placeat facere laudantium quaerat velit temporibus corporis maiores ipsum minus unde.</p>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id magni vero reiciendis voluptatum veritatis accusantium nemo mollitia atque consequatur sequi enim quos, nihil, esse perspiciatis.</p>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dolorum ipsam et ex veniam fugit.</p>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur nisi eligendi numquam similique delectus corporis, assumenda cupiditate tempora dicta reiciendis necessitatibus rerum laborum id hic in vel quasi quos beatae quam vitae ullam explicabo, inventore ex? Nulla obcaecati nihil quam optio provident dicta, quis voluptatibus debitis atque quod sapiente! Assumenda aspernatur ut atque? Molestias fugit ducimus sequi rem minima quas, ipsum nihil, modi iure aliquid, quaerat harum debitis alias illo fuga cum mollitia dolorum magnam inventore deleniti non quo similique minus! Ea possimus, aliquid, nam, libero sequi exercitationem sapiente alias ut iste perferendis voluptates id? Cum consequuntur reprehenderit ipsam officia.</p>
+                <p class="card-text">Superland has partnered with SuperCoin to provide an easy. secure, and convenient way to top up your Superland Coins.</p>
+                <p class="card-text">Top up your Superland Coins in just a matter of seconds! Simply select the desired amount of Coins, complete the payment, and the Coins will be instantly added to your Superland account.</p>
+                <p class="card-text">Choose from a variety of payment methods, including Codacash, GoPay. ShopeePay. Dana. OVO, LinkAja, Telkomsel, Indosat, Tri, XL, Bank Transfer, QRIS. Indomaret. Alfamart, Kredivo, and Credit Cards.</p>
+                <p class="card-text">The displayed prices already include VAT. Please note that additional taxes will apply for transactions using Telkomsel.</p>
+                <p>Telkomsel.
+                WARNING: The displayed prices already include VAT. Please note that additional taxes will apply for transactions using Telkomsel"</p>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6">  
             <div class="row">
                 <div class="card mb-3">
                     <div class="card-body">
@@ -32,75 +33,27 @@
                 <div class="card">
                     <div class="card-body">
                         <h1 class="card-title">COIN TOP UP</h1>
-
-                        <!-- Baris pertama -->
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <img src="https://img.freepik.com/free-psd/dollar-sign-gold-coin-icon-isolated-3d-render-illustration_439185-12784.jpg?w=2000" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <a href="#" class="btn btn-secondary">IDR 10.000</a>
-                                    </div>
+                            <div *ngFor="let card of cards" class="col-md-4">
+                              <div class="card mb-3">
+                                <img
+                                  src="https://img.freepik.com/free-psd/dollar-sign-gold-coin-icon-isolated-3d-render-illustration_439185-12784.jpg?w=2000"
+                                  class="card-img-top"
+                                  alt="..."
+                                />
+                                <div class="card-body">
+                                  <h5 class="card-title">{{ card.title }}</h5>
+                                  <button (click)="topupPoint(card.pointValue)" class="btn btn-secondary">IDR {{ card.buttonText | numberFormat }}</button>
                                 </div>
+                              </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <img src="https://img.freepik.com/free-psd/dollar-sign-gold-coin-icon-isolated-3d-render-illustration_439185-12784.jpg?w=2000" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <a href="#" class="btn btn-secondary">IDR 10.000</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <img src="https://img.freepik.com/free-psd/dollar-sign-gold-coin-icon-isolated-3d-render-illustration_439185-12784.jpg?w=2000" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <a href="#" class="btn btn-secondary">IDR 10.000</a>
-                                    </div>
-                                </div>
-                            </div>
-                          
-                          <!-- Baris kedua -->
-                          <div class="row">
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <img src="https://img.freepik.com/free-psd/dollar-sign-gold-coin-icon-isolated-3d-render-illustration_439185-12784.jpg?w=2000" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <a href="#" class="btn btn-secondary">IDR 10.000</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <img src="https://img.freepik.com/free-psd/dollar-sign-gold-coin-icon-isolated-3d-render-illustration_439185-12784.jpg?w=2000" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <a href="#" class="btn btn-secondary">IDR 10.000</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <img src="https://img.freepik.com/free-psd/dollar-sign-gold-coin-icon-isolated-3d-render-illustration_439185-12784.jpg?w=2000" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <a href="#" class="btn btn-secondary">IDR 10.000</a>
-                                    </div>
-                                </div>
-                            </div>
+                          </div>
                         </div>
-                        </div>
-            
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-</div>
 
 <app-footer2></app-footer2>

@@ -14,6 +14,7 @@ import { SetProfileImageComponent } from './theme-park/account/set-profile-image
 import { GetProfileComponent } from './theme-park/account/get-profile/get-profile.component';
 import { FormsModule } from '@angular/forms';
 import { TopupComponent } from './theme-park/topup/topup.component';
+import { NumberFormatPipe } from '../shared/pipe/number-format.pipe';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { TopupComponent } from './theme-park/topup/topup.component';
     SetProfileImageComponent,
     GetProfileComponent,
     TopupComponent,
+    NumberFormatPipe
   ],
   imports: [
     CommonModule,

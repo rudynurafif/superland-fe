@@ -18,6 +18,4 @@ export class AccountService {
   public setProfileImage(data: any): Observable<any> {
     return this.http.post('/api/account/set-profile-picture', data);
   }
-  
-
 }
