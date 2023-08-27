@@ -19,11 +19,11 @@ export class TopupComponent {
 
   cards: any[] = [
     { title: "500", buttonText: 50000, pointValue : 500 },
-    { title: "1000 + 5", buttonText: 100000, pointValue : 1000 },
-    { title: "2000 + 20", buttonText: 200000, pointValue : 2000 },
-    { title: "5000 + 50", buttonText: 500.000, pointValue : 5000 },
-    { title: "10000 + 100", buttonText: 1000000, pointValue : 10000 },
-    { title: "15000 + 200", buttonText: 1500000, pointValue : 15000 }
+    { title: "1000", buttonText: 100000, pointValue : 1000 },
+    { title: "2000", buttonText: 200000, pointValue : 2000 },
+    { title: "5000", buttonText: 500.000, pointValue : 5000 },
+    { title: "10000", buttonText: 1000000, pointValue : 10000 },
+    { title: "15000", buttonText: 1500000, pointValue : 15000 }
   ];
 
   ngOnInit() {
