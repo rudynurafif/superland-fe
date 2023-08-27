@@ -1,75 +1,78 @@
 <app-navbar></app-navbar>
+<div style="background-image: url('assets/images/bg_web.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;">
+  <div class="container">
 
-<div class="container">
-
-     <!-- CAROUSEL SECTION -->
-     <div id="carouselExampleDark" class="carousel carousel-dark slide">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <!-- CAROUSEL SECTION -->
+    <div id="carouselExampleDark" class="carousel carousel-dark slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://img.budgettravel.com/general/VeryMerryChristmasParty-scaled.jpeg" class="d-block w-100 img-fluid" alt="...">
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-            <img src="https://img.budgettravel.com/general/VeryMerryChristmasParty-scaled.jpeg" class="d-block w-100 img-fluid" alt="...">
-            </div>
-            <div class="carousel-item">
-            <img src="https://hhnrumors.com/wp-content/uploads/2019/02/pumpkinhead.jpg" class="d-block w-100 img-fluid" alt="...">
-            </div>
-            <div class="carousel-item">
-            <img src="https://ak.picdn.net/shutterstock/videos/1762727/thumb/1.jpg?i10c=img.resize(height:240)" class="d-block w-100 img-fluid" alt="...">
-            </div>
+        <div class="carousel-item">
+          <img src="https://hhnrumors.com/wp-content/uploads/2019/02/pumpkinhead.jpg" class="d-block w-100 img-fluid" alt="...">
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="false"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="false"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+        <div class="carousel-item">
+          <img src="https://ak.picdn.net/shutterstock/videos/1762727/thumb/1.jpg?i10c=img.resize(height:240)" class="d-block w-100 img-fluid" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="false"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
     <div class="shadow p-3 mb-5 bg-body-tertiary rounded text-center">RETURN TO A LAND OF MAGIC. YOUR GUIDE TO IMPORTANT INFORMATION AND UPDATED EXPERIENCES. HERE'S WHAT TO KNOW BEFORE YOU GO.
     </div>
 
     <div class="row mb-5">
-        <div class="col-md-4" *ngFor="let card of cards">
-          <div class="card mb-5 card-equal-height" style="width: 22.5rem;">
-            <img src="{{ card.imageUrl }}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{ card.title }}</h5>
-              <p class="card-text">{{ card.description }}</p>
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardModal" (click)="openModal(card)">Open Modal</button>
+      <div class="col-md-4" *ngFor="let card of cards">
+        <div class="card mb-5 card-equal-height" style="width: 22.5rem;">
+          <img src="{{ card.imageUrl }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ card.title }}</h5>
+            <p class="card-text">{{ card.description }}</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardModal" (click)="openModal(card)">Open Modal</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="card mb-3 p-3" >
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{ selectedCard?.imageUrl }}" class="img-fluid rounded" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ selectedCard?.title }}</h5>
+                <p class="card-text">{{ selectedCard?.description }}</p>
+                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                <div class="d-flex justify-content-end">
+                  <button type="button" class="btn btn-info" data-bs-dismiss="modal">Buy</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-    </div>
-      
-      <!-- Modal -->
-      <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="card mb-3 p-3" >
-                <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="{{ selectedCard?.imageUrl }}" class="img-fluid rounded" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                    <h5 class="card-title">{{ selectedCard?.title }}</h5>
-                    <p class="card-text">{{ selectedCard?.description }}</p>
-                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                    <div class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Buy</button>
-                    </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
       </div>
-      
-      
-    
+    </div>
+  </div>
+
 </div>
 
 <app-footer2></app-footer2>
