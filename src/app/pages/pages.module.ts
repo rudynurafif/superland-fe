@@ -22,6 +22,9 @@ import { HomeAdminComponent } from './administrator/home-admin/home-admin.compon
 import { AdminNavbarComponent } from './administrator/admin-navbar/admin-navbar.component';
 import { ManageEventsComponent } from './administrator/manage-events/manage-events.component';
 import { LoaderComponent } from '../shared/component/loader/loader.component';
+import {ScanButtonComponent} from "../shared/component/scan-button/scan-button.component";
+import { ScannerComponent } from './theme-park/scanner/scanner.component';
+import { OurTeamComponent } from './theme-park/our-team/our-team.component';
 
 
 @NgModule({
@@ -44,7 +47,10 @@ import { LoaderComponent } from '../shared/component/loader/loader.component';
     HomeAdminComponent,
     AdminNavbarComponent,
     ManageEventsComponent,
-    LoaderComponent
+    LoaderComponent,
+    ScanButtonComponent,
+    ScannerComponent,
+    OurTeamComponent
   ],
   imports: [
     CommonModule,

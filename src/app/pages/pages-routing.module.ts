@@ -14,6 +14,8 @@ import { ManageMerchandiseComponent } from './administrator/manage-merchandise/m
 import { ManageRidesComponent } from './administrator/manage-rides/manage-rides.component';
 import { ManageTenantsComponent } from './administrator/manage-tenants/manage-tenants.component';
 import { ManageEventsComponent } from './administrator/manage-events/manage-events.component';
+import {ScannerComponent} from "./theme-park/scanner/scanner.component";
+import {OurTeamComponent} from "./theme-park/our-team/our-team.component";
 
 const routes: Routes = [
   {
@@ -74,6 +76,14 @@ const routes: Routes = [
     path : 'manage-merchandise',
     component : ManageMerchandiseComponent
   },
+  {
+    path : 'scanner',
+    component : ScannerComponent
+  },
+  {
+    path : 'team',
+    component : OurTeamComponent
+  }
 ];
 
 @NgModule({
