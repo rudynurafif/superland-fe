@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { AuthRequest } from '../model/auth-request.model';
 import Swal from 'sweetalert2';
+import { LoaderService } from 'src/app/shared/component/loader/loader.service';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +13,13 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent {
 
+  loading : boolean = false
+
   constructor(
     private formBuilder : FormBuilder,
     private router : Router,
-    private service : AuthService
+    private service : AuthService,
+    private loaderService : LoaderService
   ) {}
 
   loginForm : FormGroup = new FormGroup({
@@ -24,29 +28,53 @@ export class LoginComponent {
   })  
 
   login(data: AuthRequest) {
-    console.log("Login Request : ", data)
-    this.service.login(data).subscribe({
-      next : (res) => {
-        console.log("Response : ", res)
-        let token = res.jwt
-        console.log(token)
-        if (token) {
-          sessionStorage.setItem('token', token)
-          Swal.fire({
-            icon: 'success',
-            title: 'Successfully login!',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          this.loginForm.reset()
-          this.router.navigateByUrl('/superland/set-profile-image')
-        }
-      },
-      error : (err) => {
-        console.log("Error : ", err)
-        Swal.fire('Invalid username / password')
-      }
+    this.loaderService.getLoading().subscribe(loading => {
+      this.loading = loading
     })
+
+    console.log("Login Request : ", data)
+    
+    this.loaderService.setLoading(true)
+    // setTimeout(() => {
+      this.service.login(data).subscribe({
+        next : (res) => {
+          console.log("Response : ", res)
+          let token = res.jwt
+          let role = res.user.authorities[0].authority
+          if (token && role === "USER") {
+            sessionStorage.setItem('token', token)
+            Swal.fire({
+              icon: 'success',
+              title: 'Successfully login!',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            this.loginForm.reset()
+            this.router.navigateByUrl('/superland/set-profile-image')
+          }
+          if (token && role === "ADMIN") {
+            sessionStorage.setItem('token', token)
+            this.service.setRole("ADMIN")
+            Swal.fire({
+              icon: 'success',
+              title: 'Successfully login as admin!',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            this.loginForm.reset()
+            this.router.navigateByUrl('/superland/home-admin')
+          }
+        },
+        error : (err) => {
+          console.log("Error : ", err)
+          Swal.fire('Invalid username / password')
+        },
+        complete : () => {
+          this.loaderService.setLoading(false)
+        }
+      })
+    // }, 1500);
+
   }
 
 }

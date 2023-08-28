@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoaderService } from '../loader/loader.service';
+import { AccountService } from 'src/app/pages/theme-park/account/account.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,15 +12,14 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
 
   constructor(
-    private readonly http : HttpClient,
-    private readonly router : Router
+    private readonly router : Router,
+    private readonly accountService : AccountService
   ) {}
 
   profileData : any = {}
 
-
   ngOnInit() {
-    this.http.get<any>('/api/account/about-me').subscribe(data => {
+    this.accountService.getAccInfo().subscribe(data => {
       this.profileData = data
     })
   }

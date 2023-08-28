@@ -15,6 +15,13 @@ import { GetProfileComponent } from './theme-park/account/get-profile/get-profil
 import { FormsModule } from '@angular/forms';
 import { TopupComponent } from './theme-park/topup/topup.component';
 import { NumberFormatPipe } from '../shared/pipe/number-format.pipe';
+import { ManageRidesComponent } from './administrator/manage-rides/manage-rides.component';
+import { ManageTenantsComponent } from './administrator/manage-tenants/manage-tenants.component';
+import { ManageMerchandiseComponent } from './administrator/manage-merchandise/manage-merchandise.component';
+import { HomeAdminComponent } from './administrator/home-admin/home-admin.component';
+import { AdminNavbarComponent } from './administrator/admin-navbar/admin-navbar.component';
+import { ManageEventsComponent } from './administrator/manage-events/manage-events.component';
+import { LoaderComponent } from '../shared/component/loader/loader.component';
 
 
 @NgModule({
@@ -30,7 +37,14 @@ import { NumberFormatPipe } from '../shared/pipe/number-format.pipe';
     SetProfileImageComponent,
     GetProfileComponent,
     TopupComponent,
-    NumberFormatPipe
+    NumberFormatPipe,
+    ManageRidesComponent,
+    ManageTenantsComponent,
+    ManageMerchandiseComponent,
+    HomeAdminComponent,
+    AdminNavbarComponent,
+    ManageEventsComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,

@@ -9,6 +9,11 @@ import { MapsComponent } from './theme-park/maps/maps.component';
 import { SetProfileImageComponent } from './theme-park/account/set-profile-image/set-profile-image.component';
 import { GetProfileComponent } from './theme-park/account/get-profile/get-profile.component';
 import { TopupComponent } from './theme-park/topup/topup.component';
+import { HomeAdminComponent } from './administrator/home-admin/home-admin.component';
+import { ManageMerchandiseComponent } from './administrator/manage-merchandise/manage-merchandise.component';
+import { ManageRidesComponent } from './administrator/manage-rides/manage-rides.component';
+import { ManageTenantsComponent } from './administrator/manage-tenants/manage-tenants.component';
+import { ManageEventsComponent } from './administrator/manage-events/manage-events.component';
 
 const routes: Routes = [
   {
@@ -46,7 +51,29 @@ const routes: Routes = [
   {
     path : 'topup',
     component : TopupComponent
-  }
+  },
+
+  // Admin Pages
+  {
+    path : 'home-admin',
+    component : HomeAdminComponent
+  },
+  {
+    path : 'manage-rides',
+    component : ManageRidesComponent
+  },
+  {
+    path : 'manage-events',
+    component : ManageEventsComponent
+  },
+  {
+    path : 'manage-tenants',
+    component : ManageTenantsComponent
+  },
+  {
+    path : 'manage-merchandise',
+    component : ManageMerchandiseComponent
+  },
 ];
 
 @NgModule({

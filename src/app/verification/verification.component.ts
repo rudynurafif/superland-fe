@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AuthService } from '../auth/auth.service';
 import { VerifyRequest } from '../shared/model/verify-request.model';
+import { LoaderService } from '../shared/component/loader/loader.service';
 
 @Component({
   selector: 'app-verification',
@@ -12,11 +13,13 @@ import { VerifyRequest } from '../shared/model/verify-request.model';
   styleUrls: ['./verification.component.scss']
 })
 export class VerificationComponent {
+  loading : boolean = false
 
   constructor( 
     private readonly http : HttpClient,
     private readonly router : Router,
-    private readonly service : AuthService
+    private readonly authService : AuthService,
+    private readonly loaderService : LoaderService
   ) {}
 
   verificationForm : FormGroup = new FormGroup({
@@ -24,14 +27,20 @@ export class VerificationComponent {
   })
 
   verify(token : string) {
+    this.loaderService.getLoading().subscribe(loading => {
+      this.loading = loading
+    })
+
     let data : VerifyRequest = {
       name : "name",
       token : this.verificationForm.get("verificationCode")?.value
     };
+
     console.log(data)
-   
     console.log(token)
-    this.service.verify(data).subscribe({
+
+    this.loaderService.setLoading(true)
+    this.authService.verify(data).subscribe({
       next : res => {
         Swal.fire({
           icon: 'success',
@@ -41,6 +50,13 @@ export class VerificationComponent {
         })
         console.log(res)
         this.router.navigateByUrl('/login')
+      },
+      error : (err) => {
+        console.log("Error : ", err)
+        Swal.fire('Invalid verification code!')
+      },
+      complete : () => {
+        this.loaderService.setLoading(false)
       }
     })
   }

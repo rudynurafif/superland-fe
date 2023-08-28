@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { AuthRequest } from './model/auth-request.model';
 import { VerifyResponse } from '../shared/model/verify-response.model';
 import { VerifyRequest } from '../shared/model/verify-request.model';
@@ -11,10 +11,11 @@ import { LoginResponse } from './model/login-response.model';
   providedIn: 'root'
 })
 export class AuthService {
-
   constructor(
     private readonly http : HttpClient
   ) { }
+
+  private roleSubject = new BehaviorSubject<string>('')
 
   public register (data : AuthRequest) : Observable<RegisterResponse> {
     return this.http.post<RegisterResponse>('/api/auth/register', data)
@@ -27,5 +28,14 @@ export class AuthService {
   public login (data : AuthRequest) : Observable<LoginResponse> {
     return this.http.post<LoginResponse>('/api/auth/login', data)
   }
+
+  getRole() {
+    return this.roleSubject.asObservable()
+  }
+
+  setRole(role: string) {
+    this.roleSubject.next(role);
+  }
+
 
 }

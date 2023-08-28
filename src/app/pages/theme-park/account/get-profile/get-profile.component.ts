@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AccountService } from '../account.service';
 import { HttpClient } from '@angular/common/http';
+import { LoaderService } from 'src/app/shared/component/loader/loader.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-get-profile',
@@ -11,30 +13,30 @@ export class GetProfileComponent {
 
   constructor(
     private readonly accountService : AccountService,
-    private readonly http : HttpClient
+    private readonly http : HttpClient,
+    private readonly loaderService : LoaderService
   ) {}
 
   profileData : any = {}
-
-  profileImage : string = ''
-  retrievedImage: any;
-  base64Data: any;
-  retrieveResonse: any;
+  loading : boolean = false
 
   ngOnInit() {
-    this.accountService.getAccInfo().subscribe(data => {
-      this.profileData = data
-      this.getImage()
+    this.loaderService.getLoading().subscribe(loading => {
+      this.loading = loading
+    })
+    
+    this.accountService.getAccInfo().subscribe({
+      next : (res) => {
+        this.profileData = res
+      },
+      error : (err) => {
+        console.log('error : ', err)
+        Swal.fire('Error')
+      },
+      complete: () => {
+        this.loaderService.setLoading(false)
+      }
     })
   }
 
-  getImage() {
-    this.http.get(`http://localhost:8085/img/userProfile/${this.profileImage}`).subscribe(
-      res => {
-        this.retrieveResonse = res;
-          this.base64Data = this.retrieveResonse.picByte;
-          this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-      }
-    )
-  }
 }

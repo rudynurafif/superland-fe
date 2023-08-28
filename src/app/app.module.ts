@@ -13,6 +13,7 @@ import { VerificationComponent } from './verification/verification.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoaderComponent } from './shared/component/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     VerificationComponent,
     LandingPageComponent,
     NotFoundComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AuthService } from '../auth.service';  
 import { AuthRequest } from '../model/auth-request.model';
+import { LoaderService } from 'src/app/shared/component/loader/loader.service';
 
 @Component({
   selector: 'app-register',
@@ -14,12 +15,15 @@ import { AuthRequest } from '../model/auth-request.model';
 export class RegisterComponent {
 
   public registerForm !: FormGroup
+  loading : boolean = false
+
 
   constructor( 
     private formBuilder : FormBuilder,
     private http : HttpClient,
     private router : Router,
-    private service : AuthService
+    private authService : AuthService,
+    private loaderService : LoaderService
     ) {}
 
   ngOnInit() : void {
@@ -34,20 +38,45 @@ export class RegisterComponent {
   }
 
   register(data : AuthRequest) {
-    this.service.register(data).subscribe(res => {
-      console.log(res)
-      Swal.fire({
-        icon: 'success',
-        title: 'Register successfull',
-        showConfirmButton: false,
-        timer: 1500
-      }) 
-      this.registerForm.reset()
-      this.router.navigate(['/verification'])
-    }, err => {
-      Swal.fire('Something went wrong..')
-      this.router.navigateByUrl('/register')
+    this.loaderService.getLoading().subscribe(loading => {
+      this.loading = loading
     })
+
+    this.loaderService.setLoading(true)
+
+    this.authService.register(data).subscribe({
+      next : (res) => {
+        console.log(res)
+        Swal.fire({
+          icon: 'success',
+          title: 'Register successfull',
+          showConfirmButton: false,
+          timer: 1500
+        }) 
+        this.registerForm.reset()
+        this.router.navigate(['/verification'])
+      },
+      error : err => {
+        Swal.fire('Something went wrong..')
+        this.router.navigateByUrl('/register')
+      },
+      complete : () => this.loaderService.setLoading(false)
+    })
+
+    // this.authService.register(data).subscribe(res => {
+    //   console.log(res)
+    //   Swal.fire({
+    //     icon: 'success',
+    //     title: 'Register successfull',
+    //     showConfirmButton: false,
+    //     timer: 1500
+    //   }) 
+    //   this.registerForm.reset()
+    //   this.router.navigate(['/verification'])
+    // }, err => {
+    //   Swal.fire('Something went wrong..')
+    //   this.router.navigateByUrl('/register')
+    // })
   }
 
 }

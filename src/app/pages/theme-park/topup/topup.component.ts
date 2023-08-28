@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { TopupService } from './topup.service';
 import Swal from 'sweetalert2';
+import { LoaderService } from 'src/app/shared/component/loader/loader.service';
 
 @Component({
   selector: 'app-topup',
@@ -12,10 +13,12 @@ export class TopupComponent {
 
   constructor (
     private readonly http : HttpClient,
-    private readonly topUpService : TopupService
+    private readonly topUpService : TopupService,
+    private readonly loaderService : LoaderService
   ) {}
 
   profileData : any = {}
+  loading : boolean = false
 
   cards: any[] = [
     { price: 50000, pointValue : 500 },
@@ -32,38 +35,13 @@ export class TopupComponent {
     })
   }
 
-  // topupPoint(point: number): void {
-  //   this.topUpService.topup(point).subscribe(
-  //     response => {
-  //       Swal.fire({
-  //         title: `<strong>Top Up Point <u>${point}</u></strong>`,
-  //         icon: 'question',
-  //         html:
-  //           'Are you sure want to proceed top up?',
-  //         showCloseButton: true,
-  //         showCancelButton: true,
-  //         focusConfirm: false,
-  //         confirmButtonText:
-  //           `<a href="${response.data.redirect_url}" style="color: inherit; text-decoration: none;" target="_blank">
-  //           <i class="fa fa-thumbs-up"></i> Yes!
-  //         </a>`,
-  //         confirmButtonAriaLabel: 'Thumbs up, great!',
-  //         cancelButtonText:
-  //           'Cancel',
-  //         cancelButtonAriaLabel: 'Thumbs down'
-  //       })
-  //     },
-  //     error => {
-  //       Swal.fire({
-  //         icon: 'error',
-  //         title: 'Oops...',
-  //         text: `${error.message}`,
-  //       })
-  //     }
-  //   );
-  // }
-
   topupPoint(point: number): void {
+    this.loaderService.getLoading().subscribe(loading => {
+      this.loading = loading
+    })
+
+    this.loaderService.setLoading(true)
+
     this.topUpService.topup(point).subscribe({
       next: response => {
         console.log(response)
@@ -91,7 +69,8 @@ export class TopupComponent {
           title: 'Oops...',
           text: `${error.message}`,
         });
-      }
+      },
+      complete : () => this.loaderService.setLoading(false)
     });
   }
 
