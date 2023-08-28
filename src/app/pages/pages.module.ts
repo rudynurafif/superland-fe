@@ -36,7 +36,6 @@ import { OurTeamComponent } from './theme-park/our-team/our-team.component';
     NumberFormatPipe,
     ScanButtonComponent,
     ScannerComponent,
-    ScannerComponent,
     OurTeamComponent
   ],
   imports: [
