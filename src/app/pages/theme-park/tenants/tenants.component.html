@@ -3,16 +3,16 @@
 <div class="container">
 
     <div class="mb-3 col-md-4">
-        <div class="input-group">
-          <span class="input-group-text" id="search-icon">
-            <i class="bi bi-search"></i>
-          </span>
-          <input type="text" class="form-control" [(ngModel)]="searchTerm" (ngModelChange)="onSearchTermChange()" placeholder="Search by title or description">
-          <span class="input-group-text" id="clear-icon" (click)="clearSearch()">
-            <i class="bi bi-x"></i>
-          </span>
-        </div>
+      <div class="input-group">
+        <span class="input-group-text" id="search-icon">
+          <i class="bi bi-search"></i>
+        </span>
+        <input type="text" class="form-control" [(ngModel)]="searchTerm" (ngModelChange)="onSearchTermChange()" placeholder="Search by title or description">
+        <span class="input-group-text" id="clear-icon" (click)="clearSearch()">
+          <i class="bi bi-x"></i>
+        </span>
       </div>
+    </div>
 
     <div class="row mb-5">
         <div class="col-md-4" *ngFor="let card of filteredCards">

@@ -1,5 +1,53 @@
-    <app-navbar></app-navbar>
+<app-navbar></app-navbar>
 
-<h1>MERCHANDISE</h1>
+<div class="container">
+    <section>
+        <div class="row banner">
+            <img src="../../../../assets/images/Pink_Modern_Dessert_Banner.png" alt="">
+        </div>
+    </section>
+   
+    <section>
+        <div class="row mt-5">
+            <div class="col-md-4" *ngFor="let card of cards">
+              <div class="card mb-5 card-equal-height" style="width: 22.5rem;">
+                <img src="{{ card.imageUrl }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{ card.title }}</h5>
+                  <p class="card-text">{{ card.description }}</p>
+                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardModal" (click)="openModal(card)">Open Modal</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="card mb-3 p-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{ selectedCard?.imageUrl }}" class="img-fluid rounded" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ selectedCard?.title }}</h5>
+                                <p class="card-text">{{ selectedCard?.description }}</p>
+                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                            </div>
+                            <div class="card-footer bg-transparent d-flex justify-content-end">
+                                <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+</div>
+
+
 
 <app-footer2></app-footer2>

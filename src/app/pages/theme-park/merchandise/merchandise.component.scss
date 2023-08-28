@@ -1,0 +1,24 @@
+.carousel-item {
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-img-top {
+height: 400px; /* Atur tinggi gambar sesuai kebutuhan */
+object-fit: cover; /* Menyesuaikan gambar agar sesuai dengan tinggi dan lebar yang telah diatur */
+}
+
+.card-equal-height {
+    display: flex;
+    flex-direction: column;
+  }
+  
+//   .card-equal-height .card-img-top {
+//     flex: 1;
+//   }
+  
+.card-equal-height .card-body {
+  flex: 0;
+}
+  
