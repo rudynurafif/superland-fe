@@ -1,0 +1,63 @@
+
+.card-body {
+  position: relative;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  animation: slideInFromBottom 0.8s ease-out both;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.name {
+  font-size: 40px;
+  margin: 0;
+  color: #191D88;
+}
+
+.role {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #FFC436;
+}
+
+.description {
+  font-size: 14px;
+  margin: 5px 0;
+  color: #191D88;
+}
+
+.f_social_icon {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.f_social_icon a {
+  color: aqua;
+  margin-right: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.f_social_icon a:hover{
+  color: yellow;
+}
+
+@keyframes slideInFormBottom {
+  0%{
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
