@@ -34,56 +34,31 @@
         </div>
 
         <div class="row">
-          <div class="card">
-            <div class="card-body">
-              <h1 class="card-title">COIN TOP UP</h1>
-              <div class="row">
-                <div *ngFor="let card of cards" class="col-md-4">
-                  <div class="card mb-3">
-                    <img
-                      src="https://img.freepik.com/free-psd/dollar-sign-gold-coin-icon-isolated-3d-render-illustration_439185-12784.jpg?w=2000"
-                      class="card-img-top"
-                      alt="..."
-                    />
-                    <div class="card-body">
-                        <button class="btn bg-warning me-3 text-white">
-                            <i class="fa-brands fa-product-hunt"></i>
-                            {{ profileData.point }}
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="card">
-                    <div class="card-body">
-                        <h1 class="card-title">COIN TOP UP</h1>
-                        <div class="row">
-                            <div *ngFor="let card of cards" class="col-md-4">
-                              <div class="card mb-3">
-                                <img
-                                  src="https://img.freepik.com/free-psd/dollar-sign-gold-coin-icon-isolated-3d-render-illustration_439185-12784.jpg?w=2000"
-                                  class="card-img-top"
-                                  alt="..."
-                                />
-                                <div class="card-body">
-                                  <h5 class="card-title">{{ card.pointValue }} Points</h5>
-                                  <button (click)="topupPoint(card.pointValue)" class="btn btn-secondary">IDR {{ card.price | numberFormat }}</button>
-                                </div>
-                              </div>
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">COIN TOP UP</h1>
+                    <div class="row">
+                        <div *ngFor="let card of cards" class="col-md-4">
+                          <div class="card mb-3">
+                            <img
+                              src="https://img.freepik.com/free-psd/dollar-sign-gold-coin-icon-isolated-3d-render-illustration_439185-12784.jpg?w=2000"
+                              class="card-img-top"
+                              alt="..."
+                            />
+                            <div class="card-body">
+                              <h5 class="card-title">{{ card.pointValue }} Points</h5>
+                              <button (click)="topupPoint(card.pointValue)" class="btn btn-secondary">IDR {{ card.price | numberFormat }}</button>
                             </div>
                           </div>
                         </div>
+                      </div>
                     </div>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
   </div>
+</div>
 
 
 

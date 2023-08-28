@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div id="camera-container">
+        <h1>Selamat datang</h1>
+        <!-- <zx-scanner (scanSuccess)="onCodeResult($event)"></zx-scanner> -->
+        <p>
+          <small>Hasil pemindaian: <span id="scan-result">{{scanResult}}</span></small>
+        </p>
+        <p>
+          <small>Status: <span id="scan-status">{{status}}</span></small>
+        </p>
+      </div>
+      <div id="button-container">
+        <button class="custom-button" (click)="handleButton1Click()">Tombol 1</button>
+        <button class="custom-button" (click)="handleButton2Click()">Tombol 2</button>
+      </div>
+</div>
+
+
+<app-footer2></app-footer2>

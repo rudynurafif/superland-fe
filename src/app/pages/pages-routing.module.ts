@@ -16,6 +16,7 @@ import { ManageTenantsComponent } from './administrator/manage-tenants/manage-te
 import { ManageEventsComponent } from './administrator/manage-events/manage-events.component';
 import {ScannerComponent} from "./theme-park/scanner/scanner.component";
 import {OurTeamComponent} from "./theme-park/our-team/our-team.component";
+import { ScanComponent } from './theme-park/scan/scan.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path : 'topup',
     component : TopupComponent
+  },
+  {
+    path : 'game',
+    component : ScanComponent
   },
 
   // Admin Pages
