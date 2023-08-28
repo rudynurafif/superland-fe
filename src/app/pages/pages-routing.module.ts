@@ -9,6 +9,8 @@ import { MapsComponent } from './theme-park/maps/maps.component';
 import { SetProfileImageComponent } from './theme-park/account/set-profile-image/set-profile-image.component';
 import { GetProfileComponent } from './theme-park/account/get-profile/get-profile.component';
 import { TopupComponent } from './theme-park/topup/topup.component';
+import {ScannerComponent} from "./theme-park/scanner/scanner.component";
+import {OurTeamComponent} from "./theme-park/our-team/our-team.component";
 
 const routes: Routes = [
   {
@@ -46,6 +48,14 @@ const routes: Routes = [
   {
     path : 'topup',
     component : TopupComponent
+  },
+  {
+    path : 'scanner',
+    component : ScannerComponent
+  },
+  {
+    path : 'team',
+    component : OurTeamComponent
   }
 ];
 

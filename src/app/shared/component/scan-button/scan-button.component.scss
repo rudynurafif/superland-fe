@@ -1,0 +1,42 @@
+.floating-button-container{
+  position: fixed;
+  bottom: 50px;
+  right: 110px;
+}
+
+.floating-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  opacity: 0.5;
+}
+
+.floating-button:hover{
+  opacity: 1;
+}
+
+.floating-button img {
+  width: 100px;
+  height: 100px;
+}
+
+@media(max-width: 767px){
+  .floating-button-container{
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+  }
+
+  .floating-button{
+    padding: 8px;
+  }
+
+  .floating-button img{
+    width: 75px;
+    height: 75px;
+  }
+}

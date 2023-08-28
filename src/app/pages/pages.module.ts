@@ -15,6 +15,9 @@ import { GetProfileComponent } from './theme-park/account/get-profile/get-profil
 import { FormsModule } from '@angular/forms';
 import { TopupComponent } from './theme-park/topup/topup.component';
 import { NumberFormatPipe } from '../shared/pipe/number-format.pipe';
+import {ScanButtonComponent} from "../shared/component/scan-button/scan-button.component";
+import { ScannerComponent } from './theme-park/scanner/scanner.component';
+import { OurTeamComponent } from './theme-park/our-team/our-team.component';
 
 
 @NgModule({
@@ -30,7 +33,11 @@ import { NumberFormatPipe } from '../shared/pipe/number-format.pipe';
     SetProfileImageComponent,
     GetProfileComponent,
     TopupComponent,
-    NumberFormatPipe
+    NumberFormatPipe,
+    ScanButtonComponent,
+    ScannerComponent,
+    ScannerComponent,
+    OurTeamComponent
   ],
   imports: [
     CommonModule,
