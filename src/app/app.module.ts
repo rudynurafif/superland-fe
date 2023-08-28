@@ -24,7 +24,7 @@ import { LoaderComponent } from './shared/component/loader/loader.component';
     VerificationComponent,
     LandingPageComponent,
     NotFoundComponent,
-    LoaderComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +33,7 @@ import { LoaderComponent } from './shared/component/loader/loader.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     {
