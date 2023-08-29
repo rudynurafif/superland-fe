@@ -17,6 +17,7 @@ import { ManageEventsComponent } from './administrator/manage-events/manage-even
 import {ScannerComponent} from "./theme-park/scanner/scanner.component";
 import {OurTeamComponent} from "./theme-park/our-team/our-team.component";
 import { ScanComponent } from './theme-park/scan/scan.component';
+import { ManageTransactionComponent } from './administrator/manage-transaction/manage-transaction.component';
 
 const routes: Routes = [
   {
@@ -80,6 +81,10 @@ const routes: Routes = [
   {
     path : 'manage-merchandise',
     component : ManageMerchandiseComponent
+  },
+  {
+    path : 'manage-transaction',
+    component : ManageTransactionComponent
   },
   {
     path : 'scanner',

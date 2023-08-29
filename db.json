@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "rides": [
+    {
+      "name": "test",
+      "description": "test",
+      "location": "A1. American Zone",
+      "price": 10,
+      "barcode": "",
+      "id": 1
+    }
+  ]
+}

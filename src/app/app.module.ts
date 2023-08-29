@@ -14,6 +14,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoaderComponent } from './shared/component/loader/loader.component';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { LoaderComponent } from './shared/component/loader/loader.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    ZXingScannerModule
   ],
   providers: [
     {
