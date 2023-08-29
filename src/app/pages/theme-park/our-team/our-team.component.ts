@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./our-team.component.scss']
 })
 export class OurTeamComponent {
-
+imgSrc= '/assets/images/test-card.png'
+  imgAlt: string= 'bg-1'
 }
