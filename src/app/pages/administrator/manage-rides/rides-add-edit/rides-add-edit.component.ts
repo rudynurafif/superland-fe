@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ManageRidesService } from '../manage-rides.service';
 import Swal from 'sweetalert2';
-import { DialogRef } from '@angular/cdk/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-rides-add-edit',
@@ -29,7 +29,7 @@ export class RidesAddEditComponent {
   constructor(
     private readonly fb : FormBuilder,
     private readonly ridesService : ManageRidesService,
-    private readonly dialogRef : DialogRef<RidesAddEditComponent>
+    private readonly dialogRef : MatDialogRef<RidesAddEditComponent>
   ) {
     this.ridesForm = fb.group({
       name : '',
@@ -46,11 +46,11 @@ export class RidesAddEditComponent {
         next : (res : any) => {
           Swal.fire({
             icon: 'success',
-            title: 'Your work has been saved',
+            title: 'Successfully added rides data',
             showConfirmButton: false,
             timer: 1500
           })
-          this.dialogRef.close()
+          this.dialogRef.close(true)
         },
         error : console.log
       })

@@ -19,5 +19,9 @@ export class ManageRidesService {
     return this.http.get('http://localhost:3000/rides')
   }
 
+  deleteRides(id : number) : Observable<any> {
+    return this.http.delete(`http://localhost:3000/rides/${id}`)
+  }
+
 
 }

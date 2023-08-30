@@ -9,6 +9,7 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-manage-rides',
@@ -18,7 +19,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 export class ManageRidesComponent {
 
   currentRole : string = ''
-  displayedColumns: string[] = ['id', 'name', 'description', 'location', 'price', 'barcode'];
+  displayedColumns: string[] = [
+    'id', 
+    'name', 
+    'description', 
+    'location', 
+    'price', 
+    'barcode',
+    'action'
+  ];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -43,7 +52,14 @@ export class ManageRidesComponent {
   }
 
   openAddEditForm() {
-    this.dialog.open(RidesAddEditComponent)
+    const dialogRef = this.dialog.open(RidesAddEditComponent)
+    dialogRef.afterClosed().subscribe({
+      next : res => {
+        if (res) {
+          this.getRidesList()
+        }
+      }
+    })
   }
 
   getRidesList() {
@@ -52,6 +68,21 @@ export class ManageRidesComponent {
         this.dataSource = new MatTableDataSource(res)
         this.dataSource.sort = this.sort
         this.dataSource.paginator = this.paginator
+      },
+      error : console.log
+    })
+  }
+
+  deleteRides(id : number) {
+    this.ridesService.deleteRides(id).subscribe({
+      next : (res) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Successfully remove rides data',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.getRidesList()
       },
       error : console.log
     })

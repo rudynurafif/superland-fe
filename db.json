@@ -24,6 +24,14 @@
       "price": 10,
       "barcode": "",
       "id": 1
+    },
+    {
+      "name": "test",
+      "description": "test",
+      "location": "B1. Indonesian Zone",
+      "price": 21,
+      "barcode": "",
+      "id": 2
     }
   ]
 }

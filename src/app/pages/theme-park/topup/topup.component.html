@@ -34,29 +34,54 @@
         </div>
 
         <div class="row">
-            <div class="card">
-                <div class="card-body">
-                    <h1 class="card-title">COIN TOP UP</h1>
-                    <div class="row">
-                        <div *ngFor="let card of cards" class="col-md-4">
-                          <div class="card mb-3">
-                            <img
-                              src="https://img.freepik.com/free-psd/dollar-sign-gold-coin-icon-isolated-3d-render-illustration_439185-12784.jpg?w=2000"
-                              class="card-img-top"
-                              alt="..."
-                            />
-                            <div class="card-body">
-                              <h5 class="card-title">{{ card.pointValue }} Points</h5>
-                              <button (click)="topupPoint(card.pointValue)" class="btn btn-secondary">IDR {{ card.price | numberFormat }}</button>
-                            </div>
+          <div class="card">
+              <div class="card-body">
+                  <h1 class="card-title">COIN TOP UP</h1>
+                  <div class="row">
+                      <div *ngFor="let card of cards" class="col-md-4">
+                        <div class="card mb-3">
+                          <img
+                            src="https://img.freepik.com/free-psd/dollar-sign-gold-coin-icon-isolated-3d-render-illustration_439185-12784.jpg?w=2000"
+                            class="card-img-top"
+                            alt="..."
+                          />
+                          <div class="card-body">
+                            <h5 class="card-title">{{ card.pointValue }} Points</h5>
+                            <button (click)="topupPoint(card.pointValue)" class="btn btn-secondary">IDR {{ card.price | numberFormat }}</button>
                           </div>
                         </div>
                       </div>
                     </div>
-                </div>
+                  </div>
               </div>
             </div>
           </div>
+        </div>
+
+          <head>
+            <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+                    data-client-key="SB-Mid-client-ddvM1HcVKrGpIFBO"></script>
+          </head>
+          
+          <body>
+          <p>Input snap token retrieved from step 1 (Backend), then click Pay.</p>
+          <form onsubmit="return false">
+          <!--  <label for="snapToken">Snap Token:</label>-->
+          <!--  <label for="snapToken">Snap Token:</label>-->
+            <input type="text" id="snap-token">
+            <button id="pay-button">Pay!</button>
+          </form>
+          
+          <script type="text/javascript">
+            var payButton = document.getElementById('pay-button');
+            // For example trigger on button clicked, or any time you need
+            payButton.addEventListener('click', function() {
+              var snapToken = document.getElementById('snap-token').value;
+              snap.pay(snapToken);
+            });
+          
+          </script>
+          </body>
   </div>
 </div>
 
