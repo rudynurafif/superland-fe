@@ -40,6 +40,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import {ZXingScannerModule} from "@zxing/ngx-scanner";
+import { EventsAddEditComponent } from './administrator/manage-events/events-add-edit/events-add-edit.component';
+import { TenantsAddEditComponent } from './administrator/manage-tenants/tenants-add-edit/tenants-add-edit.component';
+import { MerchandiseAddEditComponent } from './administrator/manage-merchandise/merchandise-add-edit/merchandise-add-edit.component';
 
 
 @NgModule({
@@ -68,6 +71,9 @@ import {ZXingScannerModule} from "@zxing/ngx-scanner";
     ScanComponent,
     ManageTransactionComponent,
     RidesAddEditComponent,
+    EventsAddEditComponent,
+    TenantsAddEditComponent,
+    MerchandiseAddEditComponent,
     // LoaderComponent
   ],
   imports: [

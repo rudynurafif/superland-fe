@@ -87,18 +87,41 @@ export class ManageRidesComponent implements OnInit {
   }
 
   deleteRides(id : number) {
-    this.ridesService.deleteRides(id).subscribe({
-      next : (res) => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Successfully remove rides data',
-          showConfirmButton: false,
-          timer: 1500
-        })
-        this.getRidesList()
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger me-3'
       },
-      error : console.log
+      buttonsStyling: false
     })
+    
+    swalWithBootstrapButtons.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.ridesService.deleteRides(id).subscribe(() => {
+          swalWithBootstrapButtons.fire(
+            'Deleted!',
+            'Your data has been deleted.',
+            'success'
+          )
+        this.getRidesList()
+        })
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Your data is safe :)',
+            'error'
+            )
+            this.getRidesList()
+        }
+      })
   }
 
   applyFilter(event: Event) {

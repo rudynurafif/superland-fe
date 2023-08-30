@@ -18,7 +18,7 @@
   },
   "rides": [
     {
-      "name": "test2",
+      "name": "Wahana 122222",
       "description": "test",
       "location": "A1. American Zone",
       "price": 10,
@@ -26,12 +26,61 @@
       "id": 1
     },
     {
-      "name": "test",
-      "description": "test",
-      "location": "B1. Indonesian Zone",
+      "name": "Wahana 2",
+      "description": "desc",
+      "location": "A2. Cartoon Word Zone",
       "price": 21,
       "barcode": "",
       "id": 2
     }
-  ]
+  ],
+  "events": [
+    {
+      "name": "Event 1",
+      "description": "test",
+      "location": "B1. Indonesian Zone",
+      "price": 21,
+      "poster": "",
+      "id": 1
+    },
+    {
+      "name": "Event 2",
+      "description": "test",
+      "location": "A2. Cartoon Word Zone",
+      "price": 21,
+      "poster": "",
+      "id": 2
+    }
+  ],
+  "tenants": [
+    {
+      "name": "Tenant 1",
+      "description": "test",
+      "location": "E1. Russian Zone",
+      "id": 1
+    },
+    {
+      "name": "Tenant 2",
+      "description": "desc 2",
+      "location": "D2. Greek Zone",
+      "id": 2
+    }
+  ],
+  "merchandise": [
+    {
+      "name": "Merch 1",
+      "description": "desc 1",
+      "price": 70000,
+      "picture": "",
+      "id": 1
+    },
+    {
+      "name": "Merch 2",
+      "description": "desc",
+      "price": 80000,
+      "picture": "",
+      "id": 2
+    }
+  ],
+  "transactions" : []
 }

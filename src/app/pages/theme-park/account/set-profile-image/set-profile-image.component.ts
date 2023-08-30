@@ -33,7 +33,7 @@ export class SetProfileImageComponent {
 
     this.accService.setProfileImage(formData).subscribe({
       next: (response: any) => {
-        // console.log(response)
+        console.log(response)
         Swal.fire({
           icon: 'success',
           title: 'Profile image uploaded successfully',

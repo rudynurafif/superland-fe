@@ -28,7 +28,7 @@ export class RegisterComponent {
 
   ngOnInit() : void {
     this.registerForm = this.formBuilder.group({
-      username : ['', Validators.required],
+      username : ['', [Validators.required, Validators.email]],
       password : ['', Validators.required]
     })
   }
@@ -62,21 +62,6 @@ export class RegisterComponent {
       },
       complete : () => this.loaderService.setLoading(false)
     })
-
-    // this.authService.register(data).subscribe(res => {
-    //   console.log(res)
-    //   Swal.fire({
-    //     icon: 'success',
-    //     title: 'Register successfull',
-    //     showConfirmButton: false,
-    //     timer: 1500
-    //   }) 
-    //   this.registerForm.reset()
-    //   this.router.navigate(['/verification'])
-    // }, err => {
-    //   Swal.fire('Something went wrong..')
-    //   this.router.navigateByUrl('/register')
-    // })
   }
 
 }
