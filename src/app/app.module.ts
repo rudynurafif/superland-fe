@@ -14,8 +14,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoaderComponent } from './shared/component/loader/loader.component';
-import { ZXingScannerModule } from '@zxing/ngx-scanner';
-
+import {ZXingScannerModule} from "@zxing/ngx-scanner";
+import { ScannerZxKingComponent } from './scanner-zx-king/scanner-zx-king.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +25,8 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     VerificationComponent,
     LandingPageComponent,
     NotFoundComponent,
-    LoaderComponent
+    LoaderComponent,
+    ScannerZxKingComponent
   ],
   imports: [
     BrowserModule,

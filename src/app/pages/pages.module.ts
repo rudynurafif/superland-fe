@@ -26,7 +26,7 @@ import {ScanButtonComponent} from "../shared/component/scan-button/scan-button.c
 import { ScannerComponent } from './theme-park/scanner/scanner.component';
 import { OurTeamComponent } from './theme-park/our-team/our-team.component';
 import { ScanComponent } from './theme-park/scan/scan.component';
-import { ZXingScannerComponent, ZXingScannerModule } from '@zxing/ngx-scanner';
+// import { ZXingScannerComponent, ZXingScannerModule } from '@zxing/ngx-scanner';
 import { MatButtonModule } from '@angular/material/button'
 import { MatDialogModule } from '@angular/material/dialog';
 import { ManageTransactionComponent } from './administrator/manage-transaction/manage-transaction.component';
@@ -39,6 +39,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
+import {ZXingScannerModule} from "@zxing/ngx-scanner";
 
 
 @NgModule({
@@ -67,14 +68,12 @@ import { MatIconModule } from '@angular/material/icon';
     ScanComponent,
     ManageTransactionComponent,
     RidesAddEditComponent,
-    // ZXingScannerComponent
     // LoaderComponent
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
     FormsModule,
-    ZXingScannerModule,
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
@@ -85,7 +84,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatIconModule
+    MatIconModule,
+    ZXingScannerModule
   ]
 })
 export class PagesModule { }
