@@ -86,10 +86,10 @@ const routes: Routes = [
     path : 'manage-transaction',
     component : ManageTransactionComponent
   },
-  {
-    path : 'scanner',
-    component : ScannerComponent
-  },
+  // {
+  //   path : 'scanner',
+  //   component : ScannerComponent
+  // },
   {
     path : 'team',
     component : OurTeamComponent
