@@ -37,15 +37,35 @@ export class ManageMerchandiseComponent {
     private readonly merchService : ManageMerchandiseService,
   ) {}
 
-  ngOnInit() {
-    this.authService.getRole().subscribe(role => {
-      this.currentRole = role
+  isAdmin : boolean = false
 
-      if (this.currentRole !== "ADMIN") {
-        // this.router.navigateByUrl('/superland')
-      }
-    })
-    this.getMerchList()
+  ngOnInit() {
+    // this.authService.getRole().subscribe(role => {
+    //   this.currentRole = role
+
+    //   if (this.currentRole !== "ADMIN") {
+    //     Swal.fire({
+    //       icon: 'error',
+    //       title: 'Oops...',
+    //       text: 'You are not authorized!'
+    //     });
+    //     this.router.navigateByUrl('/superland')
+    //   }
+    // })
+    // this.getMerchList()
+
+    const role = this.authService.getRole();
+    this.isAdmin = role === 'ADMIN';
+    if (this.isAdmin) {
+      this.getMerchList()
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'You are not authorized!'
+      });
+      this.router.navigateByUrl('/superland')
+    }
   }
 
   openAddEditForm() {

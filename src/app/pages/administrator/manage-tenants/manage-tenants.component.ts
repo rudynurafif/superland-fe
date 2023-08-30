@@ -36,15 +36,35 @@ export class ManageTenantsComponent {
     private readonly tenantService : ManageTenantsService,
   ) {}
 
-  ngOnInit() {
-    this.authService.getRole().subscribe(role => {
-      this.currentRole = role
+  isAdmin : boolean = false
 
-      if (this.currentRole !== "ADMIN") {
-        // this.router.navigateByUrl('/superland')
-      }
-    })
-    this.getTenantsList()
+  ngOnInit() {
+    // this.authService.getRole().subscribe(role => {
+    //   this.currentRole = role
+
+    //   if (this.currentRole !== "ADMIN") {
+    //     Swal.fire({
+    //       icon: 'error',
+    //       title: 'Oops...',
+    //       text: 'You are not authorized!'
+    //     });
+    //     this.router.navigateByUrl('/superland')
+    //   }
+    // })
+    // this.getTenantsList()
+
+    const role = this.authService.getRole();
+    this.isAdmin = role === 'ADMIN';
+    if (this.isAdmin) {
+      this.getTenantsList()
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'You are not authorized!'
+      });
+      this.router.navigateByUrl('/superland')
+    }
   }
 
   openAddEditForm() {

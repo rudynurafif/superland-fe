@@ -11,6 +11,8 @@ import { LoginResponse } from './model/login-response.model';
   providedIn: 'root'
 })
 export class AuthService {
+  private roleKey = 'userRole'
+
   constructor(
     private readonly http : HttpClient
   ) { }
@@ -29,13 +31,20 @@ export class AuthService {
     return this.http.post<LoginResponse>('/api/auth/login', data)
   }
 
-  getRole() {
-    return this.roleSubject.asObservable()
+  // getRole() {
+  //   return this.roleSubject.asObservable()
+  // }
+
+  // setRole(role: string) {
+  //   this.roleSubject.next(role);
+  // }
+
+  getRole(): string {
+    return localStorage.getItem(this.roleKey) || '';
   }
 
-  setRole(role: string) {
-    this.roleSubject.next(role);
+  setRole(role: string): void {
+    localStorage.setItem(this.roleKey, role);
   }
-
 
 }

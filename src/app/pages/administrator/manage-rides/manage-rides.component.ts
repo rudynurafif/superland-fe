@@ -40,15 +40,34 @@ export class ManageRidesComponent implements OnInit {
     private readonly ridesService : ManageRidesService,
   ) {}
 
-  ngOnInit() {
-    this.authService.getRole().subscribe(role => {
-      this.currentRole = role
+  isAdmin : boolean = false
 
-      if (this.currentRole !== "ADMIN") {
-        // this.router.navigateByUrl('/superland')
-      }
-    })
-    this.getRidesList()
+  ngOnInit() {
+    // this.authService.getRole().subscribe(role => {
+    //   this.currentRole = role
+
+    //   if (this.currentRole !== "ADMIN") {
+    //     Swal.fire({
+    //       icon: 'error',
+    //       title: 'Oops...',
+    //       text: 'You are not authorized!'
+    //     });
+    //     this.router.navigateByUrl('/superland')
+    //   }
+    // })
+
+    const role = this.authService.getRole();
+    this.isAdmin = role === 'ADMIN';
+    if (this.isAdmin) {
+      this.getRidesList()
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'You are not authorized!'
+      });
+      this.router.navigateByUrl('/superland')
+    }
   }
 
   openAddEditForm() {

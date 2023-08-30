@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ManageRidesService } from '../manage-rides/manage-rides.service';
 import { ManageTransactionService } from './manage-transaction.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-manage-transaction',
@@ -36,18 +37,38 @@ export class ManageTransactionComponent {
     private readonly transactionService : ManageTransactionService,
   ) {}
 
-  ngOnInit() {
-    this.authService.getRole().subscribe(role => {
-      this.currentRole = role
+  isAdmin : boolean = false
 
-      if (this.currentRole !== "ADMIN") {
-        // this.router.navigateByUrl('/superland')
-      }
-    })
-    this.getRidesList()
+  ngOnInit() {
+    // this.authService.getRole().subscribe(role => {
+    //   this.currentRole = role
+
+    //   if (this.currentRole !== "ADMIN") {
+    //     Swal.fire({
+    //       icon: 'error',
+    //       title: 'Oops...',
+    //       text: 'You are not authorized!'
+    //     });
+    //     this.router.navigateByUrl('/superland') 
+    //   }
+    // })
+    // this.getTransactionList()
+
+    const role = this.authService.getRole();
+    this.isAdmin = role === 'ADMIN';
+    if (this.isAdmin) {
+      this.getTransactionList()
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'You are not authorized!'
+      });
+      this.router.navigateByUrl('/superland')
+    }
   }
 
-  getRidesList() {
+  getTransactionList() {
     this.transactionService.getTransactionList().subscribe({
       next : (res) => {
         this.dataSource = new MatTableDataSource(res)

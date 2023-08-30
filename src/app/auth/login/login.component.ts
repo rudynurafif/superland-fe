@@ -35,45 +35,45 @@ export class LoginComponent {
     console.log("Login Request : ", data)
     
     this.loaderService.setLoading(true)
-    // setTimeout(() => {
-      this.service.login(data).subscribe({
-        next : (res) => {
-          console.log("Response : ", res)
-          let token = res.jwt
-          let role = res.user.authorities[0].authority
-          if (token && role === "USER") {
-            sessionStorage.setItem('token', token)
-            Swal.fire({
-              icon: 'success',
-              title: 'Successfully login!',
-              showConfirmButton: false,
-              timer: 1500
-            })
-            this.loginForm.reset()
-            this.router.navigateByUrl('/superland/set-profile-image')
-          }
-          if (token && role === "ADMIN") {
-            sessionStorage.setItem('token', token)
-            this.service.setRole("ADMIN")
-            Swal.fire({
-              icon: 'success',
-              title: 'Successfully login as admin!',
-              showConfirmButton: false,
-              timer: 1500
-            })
-            this.loginForm.reset()
-            this.router.navigateByUrl('/superland/home-admin')
-          }
-        },
-        error : (err) => {
-          console.log("Error : ", err)
-          Swal.fire('Invalid username / password')
-        },
-        complete : () => {
-          this.loaderService.setLoading(false)
+    
+    this.service.login(data).subscribe({
+      next : (res) => {
+        console.log("Response : ", res)
+        let token = res.jwt
+        let role = res.user.authorities[0].authority
+        if (token && role === "USER") {
+          sessionStorage.setItem('token', token)
+          Swal.fire({
+            icon: 'success',
+            title: 'Successfully login!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.service.setRole(res.user.authorities[0].authority)
+          this.loginForm.reset()
+          this.router.navigateByUrl('/superland/set-profile-image')
         }
-      })
-    // }, 1500);
+        if (token && role === "ADMIN") {
+          sessionStorage.setItem('token', token)
+          this.service.setRole("ADMIN")
+          Swal.fire({
+            icon: 'success',
+            title: 'Successfully login as admin!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.loginForm.reset()
+          this.router.navigateByUrl('/superland/home-admin')
+        }
+      },
+      error : (err) => {
+        console.log("Error : ", err)
+        Swal.fire('Invalid username / password')
+      },
+      complete : () => {
+        this.loaderService.setLoading(false)
+      }
+    })
 
   }
 
