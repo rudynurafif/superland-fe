@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ManageRidesService } from '../manage-rides.service';
 import Swal from 'sweetalert2';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-rides-add-edit',
@@ -10,7 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./rides-add-edit.component.scss']
 })
 
-export class RidesAddEditComponent {
+export class RidesAddEditComponent implements OnInit {
   ridesForm : FormGroup
 
   location : string[] = [
@@ -29,7 +29,8 @@ export class RidesAddEditComponent {
   constructor(
     private readonly fb : FormBuilder,
     private readonly ridesService : ManageRidesService,
-    private readonly dialogRef : MatDialogRef<RidesAddEditComponent>
+    private readonly dialogRef : MatDialogRef<RidesAddEditComponent>,
+    @Inject(MAT_DIALOG_DATA) public data : any
   ) {
     this.ridesForm = fb.group({
       name : '',
@@ -40,20 +41,39 @@ export class RidesAddEditComponent {
     })
   }
 
+  ngOnInit() {
+    this.ridesForm.patchValue(this.data)
+  }
+
   submitForm() {
     if (this.ridesForm.valid) {
-      this.ridesService.addRides(this.ridesForm.value).subscribe({
-        next : (res : any) => {
-          Swal.fire({
-            icon: 'success',
-            title: 'Successfully added rides data',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          this.dialogRef.close(true)
-        },
-        error : console.log
-      })
+      if (this.data) {
+        this.ridesService.updateRides(this.data.id, this.ridesForm.value).subscribe({
+          next : (res : any) => {
+            Swal.fire({
+              icon: 'success',
+              title: 'Successfully updated rides data',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            this.dialogRef.close(true)
+          },
+          error : console.log
+        })
+      } else {
+        this.ridesService.addRides(this.ridesForm.value).subscribe({
+          next : (res : any) => {
+            Swal.fire({
+              icon: 'success',
+              title: 'Successfully added rides data',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            this.dialogRef.close(true)
+          },
+          error : console.log
+        })
+      }
     }
   }
 

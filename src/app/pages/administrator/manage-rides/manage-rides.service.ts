@@ -19,6 +19,10 @@ export class ManageRidesService {
     return this.http.get('http://localhost:3000/rides')
   }
 
+  updateRides(id : number, data : any) : Observable<any> {
+    return this.http.post(`http://localhost:3000/rides/${id}`, data)
+  }
+
   deleteRides(id : number) : Observable<any> {
     return this.http.delete(`http://localhost:3000/rides/${id}`)
   }

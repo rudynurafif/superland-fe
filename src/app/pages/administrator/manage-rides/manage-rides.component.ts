@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import {AfterViewInit, Component, Inject, OnInit, ViewChild} from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { RidesAddEditComponent } from './rides-add-edit/rides-add-edit.component';
@@ -16,7 +16,7 @@ import Swal from 'sweetalert2';
   templateUrl: './manage-rides.component.html',
   styleUrls: ['./manage-rides.component.scss']
 })
-export class ManageRidesComponent {
+export class ManageRidesComponent implements OnInit {
 
   currentRole : string = ''
   displayedColumns: string[] = [
@@ -37,7 +37,7 @@ export class ManageRidesComponent {
     private readonly authService : AuthService,
     private readonly router : Router,
     private readonly dialog : MatDialog,
-    private readonly ridesService : ManageRidesService
+    private readonly ridesService : ManageRidesService,
   ) {}
 
   ngOnInit() {
@@ -70,6 +70,19 @@ export class ManageRidesComponent {
         this.dataSource.paginator = this.paginator
       },
       error : console.log
+    })
+  }
+
+  openEditForm(data : any) {
+    const dialogRef = this.dialog.open(RidesAddEditComponent, {
+      data
+    })
+    dialogRef.afterClosed().subscribe({
+      next : res => {
+        if (res) {
+          this.getRidesList()
+        }
+      }
     })
   }
 
