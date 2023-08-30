@@ -9,6 +9,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SetProfileImageComponent } from './pages/theme-park/account/set-profile-image/set-profile-image.component';
 import { GetProfileComponent } from './pages/theme-park/account/get-profile/get-profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {ScannerZxKingComponent} from "./scanner-zx-king/scanner-zx-king.component";
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'login',
     component : LoginComponent
+  },
+  {
+    path:'scan',
+    component:ScannerZxKingComponent
   },
   // {
   //   path : 'set-profile-image',

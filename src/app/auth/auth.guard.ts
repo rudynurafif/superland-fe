@@ -3,7 +3,6 @@ import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } fr
 
 export const authGuard: CanActivateFn = (route : ActivatedRouteSnapshot, state : RouterStateSnapshot) => {
   const router = inject(Router)
-
   if (sessionStorage.getItem('token')) {
     return true
   } else {
