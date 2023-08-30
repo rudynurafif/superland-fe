@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./scanner-zx-king.component.scss']
 })
 export class ScannerZxKingComponent {
-
+  scanResult:any = '';
+  onCodeResult(result:string){
+    this.scanResult = result;
+    console.log(result);
+  }
 }
