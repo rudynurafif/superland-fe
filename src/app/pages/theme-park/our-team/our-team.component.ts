@@ -49,3 +49,4 @@ export class OurTeamComponent {
     document.documentElement.style.setProperty('--hover-image', 'none');
   }
 }
+

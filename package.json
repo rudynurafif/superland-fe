@@ -21,8 +21,6 @@
     "@angular/platform-browser": "^16.1.0",
     "@angular/platform-browser-dynamic": "^16.1.0",
     "@angular/router": "^16.1.0",
-    "@zxing/ngx-scanner": "^16.0.1",
-    "aos": "^2.3.4",
     "bootstrap": "^5.3.1",
     "bootstrap-icons": "^1.10.5",
     "json-server": "^0.17.3",

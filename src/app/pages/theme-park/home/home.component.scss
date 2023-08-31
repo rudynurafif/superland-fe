@@ -74,6 +74,20 @@ transition: transform 0.3s ease;
 transform: scale(1.1);
 }
 
+
+.zoomable-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.zoomable-image img {
+  transition: transform 0.3s ease;
+}
+
+.zoomable-image:hover img {
+  transform: scale(1.1);
+}
+
 @keyframes slideInFromBottom {
 0% {
   transform: translateY(100%);

@@ -43,18 +43,6 @@ export class ManageRidesComponent implements OnInit {
   isAdmin : boolean = false
 
   ngOnInit() {
-    // this.authService.getRole().subscribe(role => {
-    //   this.currentRole = role
-
-    //   if (this.currentRole !== "ADMIN") {
-    //     Swal.fire({
-    //       icon: 'error',
-    //       title: 'Oops...',
-    //       text: 'You are not authorized!'
-    //     });
-    //     this.router.navigateByUrl('/superland')
-    //   }
-    // })
 
     const role = this.authService.getRole();
     this.isAdmin = role === 'ADMIN';

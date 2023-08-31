@@ -16,5 +16,4 @@ export class TopupService {
     return this.http.post<ResponseWrapper<PaymentResponse>>(`api/payment/request/${point}`, point)
   }
 
-
 }

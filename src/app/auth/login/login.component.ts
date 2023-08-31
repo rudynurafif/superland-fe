@@ -41,18 +41,18 @@ export class LoginComponent {
         console.log("Response : ", res)
         let token = res.jwt
         let role = res.user.authorities[0].authority
-        if (token && role === "USER") {
-          sessionStorage.setItem('token', token)
-          Swal.fire({
-            icon: 'success',
-            title: 'Successfully login!',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          this.service.setRole(res.user.authorities[0].authority)
-          this.loginForm.reset()
-          this.router.navigateByUrl('/superland/set-profile-image')
-        }
+        // if (token && role === "USER") {
+        //   sessionStorage.setItem('token', token)
+        //   Swal.fire({
+        //     icon: 'success',
+        //     title: 'Successfully login!',
+        //     showConfirmButton: false,
+        //     timer: 1500
+        //   })
+        //   this.service.setRole(res.user.authorities[0].authority)
+        //   this.loginForm.reset()
+        //   this.router.navigateByUrl('/superland/set-profile-image')
+        // }
         if (token && role === "ADMIN") {
           sessionStorage.setItem('token', token)
           this.service.setRole("ADMIN")
@@ -64,6 +64,17 @@ export class LoginComponent {
           })
           this.loginForm.reset()
           this.router.navigateByUrl('/superland/home-admin')
+        } else {
+          sessionStorage.setItem('token', token)
+          Swal.fire({
+            icon: 'success',
+            title: 'Successfully login!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          // this.service.setRole(res.user.authorities[0].authority)
+          this.loginForm.reset()
+          this.router.navigateByUrl('/superland/set-profile-image')
         }
       },
       error : (err) => {
