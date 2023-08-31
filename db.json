@@ -18,7 +18,7 @@
   },
   "rides": [
     {
-      "name": "Wahana 122222",
+      "name": "Wahana 1",
       "description": "test",
       "location": "A1. American Zone",
       "price": 10,
@@ -32,6 +32,14 @@
       "price": 21,
       "barcode": "",
       "id": 2
+    },
+    {
+      "name": "Wahana 3",
+      "description": "desc",
+      "location": "C1. Asian Zone",
+      "price": 12,
+      "barcode": "",
+      "id": 3
     }
   ],
   "events": [
@@ -82,5 +90,5 @@
       "id": 2
     }
   ],
-  "transactions" : []
+  "transactions": []
 }

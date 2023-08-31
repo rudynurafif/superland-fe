@@ -5,20 +5,37 @@
 }
 
 .card-img-top {
-height: 200px; /* Atur tinggi gambar sesuai kebutuhan */
-object-fit: cover; /* Menyesuaikan gambar agar sesuai dengan tinggi dan lebar yang telah diatur */
+  height: 200px; 
+  object-fit: cover; 
 }
 
 .card-equal-height {
-    display: flex;
-    flex-direction: column;
-  }
+  display: flex;
+  flex-direction: column;
+}
   
-//   .card-equal-height .card-img-top {
-//     flex: 1;
-//   }
-  
-  .card-equal-height .card-body {
-    flex: 0;
-  }
+.card-equal-height .card-body {
+  flex: 0;
+}
+
+.modal-body p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px; 
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 30px;
+}
+
+.price-icon {
+  margin-left: auto;
+  font-size: 30px; 
+}
+
+.description {
+  font-size: 12px;
+}
   

@@ -21,4 +21,26 @@ object-fit: cover; /* Menyesuaikan gambar agar sesuai dengan tinggi dan lebar ya
 .card-equal-height .card-body {
   flex: 0;
 }
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 18px; /* Atur ukuran ikon */
+}
+
+.price-icon {
+  font-size: 18px; /* Atur ukuran ikon harga */
+}
+
+
+
+
+
+
   

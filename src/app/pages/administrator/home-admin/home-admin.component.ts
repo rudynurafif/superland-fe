@@ -22,13 +22,6 @@ export class HomeAdminComponent {
   isAdmin : boolean = false
 
   ngOnInit() {
-    // this.authService.getRole().subscribe(role => {
-    //   this.currentRole = role
-    //   if (this.currentRole !== "ADMIN") {
-    //     this.router.navigateByUrl('/superland')
-    //   }
-    // })
-
     const role = this.authService.getRole();
     this.isAdmin = role === 'ADMIN';
     if (!this.isAdmin) {
