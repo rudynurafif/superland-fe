@@ -3,6 +3,46 @@
     background-size: cover;
     background-position: center;
 }
+.rides-content {
+  padding: 30px;
+}
+
+.gradient-background {
+  background: linear-gradient(to bottom, #191D88, #1450A3); /* Sesuaikan warna sesuai preferensi Anda */
+  padding: 30px;
+  text-align: center;
+  color: white;
+}
+
+.rides-content h2 {
+  font-size: 36px;
+  font-family: 'Roboto', sans-serif; /* Ganti dengan font yang Anda inginkan */
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.rides-content p {
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif; /* Ganti dengan font yang Anda inginkan */
+  color: white;
+  margin-bottom: 20px;
+}
+.explore-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #FFC436;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: #E6A413;
+}
 
 .grid-image {
   width: 100%;
