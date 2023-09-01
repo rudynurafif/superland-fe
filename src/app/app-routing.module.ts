@@ -30,7 +30,7 @@ const routes: Routes = [
   },
   {
     path:'scan',
-    component:ScannerZxKingComponent
+    component : ScannerZxKingComponent
   },
   // {
   //   path : 'set-profile-image',

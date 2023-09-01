@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VerificationComponent } from './verification.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('VerificationComponent', () => {
   let component: VerificationComponent;
@@ -8,7 +10,8 @@ describe('VerificationComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [VerificationComponent]
+      declarations: [VerificationComponent],
+      imports : [HttpClientTestingModule, FormsModule, ReactiveFormsModule]
     });
     fixture = TestBed.createComponent(VerificationComponent);
     component = fixture.componentInstance;

@@ -25,6 +25,7 @@ export class AdminNavbarComponent {
 
   logout() {
     sessionStorage.removeItem('token')
+    localStorage.removeItem('userRole')
   }
 
   topUp() {

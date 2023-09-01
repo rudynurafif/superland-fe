@@ -39,36 +39,36 @@ export class LoginComponent {
     this.service.login(data).subscribe({
       next : (res) => {
         console.log("Response : ", res)
+        if (res.user === null) {
+          Swal.fire('Invalid username / password')
+          return
+        }
+
         let token = res.jwt
         let role = res.user.authorities[0].authority
         
-        if (token && role === "ADMIN") {
-          sessionStorage.setItem('token', token)
-          this.service.setRole("ADMIN")
-          Swal.fire({
-            icon: 'success',
-            title: 'Successfully login as admin!',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          this.loginForm.reset()
-          this.router.navigateByUrl('/superland/home-admin')
-        } else {
-          sessionStorage.setItem('token', token)
-          Swal.fire({
+        if (token) {
+          sessionStorage.setItem('token', token);
+          this.service.setRole(role);
+        
+          Swal.fire({     
             icon: 'success',
             title: 'Successfully login!',
             showConfirmButton: false,
             timer: 1500
-          })
-          // this.service.setRole(res.user.authorities[0].authority)
-          this.loginForm.reset()
-          this.router.navigateByUrl('/superland/set-profile-image')
+          });
+        
+          this.loginForm.reset();
+        
+          if (role === "ADMIN") {
+            this.router.navigateByUrl('/superland/home-admin');
+          } else if (role === 'USER') {
+            this.router.navigateByUrl('/superland/set-profile-image');
+          } 
         }
       },
       error : (err) => {
         console.log("Error : ", err)
-        Swal.fire('Invalid username / password')
       },
       complete : () => {
         this.loaderService.setLoading(false)

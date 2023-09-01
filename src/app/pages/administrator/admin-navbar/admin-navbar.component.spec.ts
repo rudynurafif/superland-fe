@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminNavbarComponent } from './admin-navbar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('AdminNavbarComponent', () => {
   let component: AdminNavbarComponent;
@@ -8,7 +10,8 @@ describe('AdminNavbarComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AdminNavbarComponent]
+      declarations: [AdminNavbarComponent],
+      imports : [HttpClientModule, HttpClientTestingModule]
     });
     fixture = TestBed.createComponent(AdminNavbarComponent);
     component = fixture.componentInstance;

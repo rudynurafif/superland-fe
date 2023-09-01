@@ -14,7 +14,6 @@ export class HomeComponent {
     AOS.init();
   }
 
-
   startCarousel() {
     // Mengakses elemen carousel
     const carouselElement: HTMLElement | null = document.querySelector('.carousel');

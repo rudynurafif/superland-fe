@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SetProfileImageComponent } from './set-profile-image.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('SetProfileImageComponent', () => {
   let component: SetProfileImageComponent;
@@ -8,7 +9,8 @@ describe('SetProfileImageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SetProfileImageComponent]
+      declarations: [SetProfileImageComponent],
+      imports : [HttpClientTestingModule]
     });
     fixture = TestBed.createComponent(SetProfileImageComponent);
     component = fixture.componentInstance;
